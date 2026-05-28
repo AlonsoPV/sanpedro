@@ -6879,6 +6879,671 @@ select:focus {
   }
 }
 
+/* ============================================================
+   v25 — FOOTER editorial premium · respira y deja sitio al banner
+   ============================================================ */
+
+.foot {
+  position: relative !important;
+  z-index: 1 !important;
+  padding:
+    clamp(36px, 4vw, 52px)
+    clamp(22px, 6vw, 96px)
+    calc(clamp(120px, 14vh, 150px) + env(safe-area-inset-bottom, 0px)) !important;
+  color: rgba(244, 238, 226, 0.62) !important;
+  background:
+    radial-gradient(ellipse 60% 60% at 14% 0%, rgba(11, 90, 82, 0.45), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 86% 100%, rgba(214, 177, 90, 0.06), transparent 60%),
+    linear-gradient(180deg, #042b27 0%, #032420 100%) !important;
+  border-top: 1px solid rgba(214, 177, 90, 0.18) !important;
+  font-family: var(--sans, system-ui) !important;
+  font-size: 12px !important;
+}
+
+/* Línea dorada sutil arriba como sello premium */
+.foot::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: clamp(60px, 8vw, 120px) !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--gold-2, #e8c97a), transparent) !important;
+  opacity: 0.6 !important;
+  z-index: 1;
+}
+
+.foot-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.6fr) minmax(0, 0.8fr) !important;
+  align-items: center !important;
+  gap: clamp(18px, 3vw, 40px) !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  min-height: 0 !important;
+}
+
+/* ----- BRAND (izquierda) ----- */
+.foot-brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.foot-brand strong {
+  color: #fff !important;
+  font-family: var(--serif, Georgia) !important;
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1 !important;
+}
+
+.foot-brand strong span {
+  color: var(--gold-2, #e8c97a) !important;
+}
+
+.foot-dot {
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 50% !important;
+  background: var(--gold, #c8a24a) !important;
+  flex-shrink: 0 !important;
+  opacity: 0.7;
+}
+
+.foot-addr {
+  color: rgba(244, 238, 226, 0.5) !important;
+  font-family: var(--sans, system-ui) !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* ----- META (centro) ----- */
+.foot-meta {
+  margin: 0 !important;
+  color: rgba(244, 238, 226, 0.5) !important;
+  font-family: var(--sans, system-ui) !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+/* ----- COPY (derecha) ----- */
+.foot-copy {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  color: rgba(244, 238, 226, 0.42) !important;
+  font-family: var(--sans, system-ui) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+}
+
+.foot-brand:hover .foot-brand strong,
+.foot-brand:hover strong {
+  color: var(--gold-2, #e8c97a) !important;
+  transition: color 240ms ease;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1024px) {
+  .foot-inner {
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto) !important;
+    gap: 20px !important;
+  }
+
+  .foot-meta {
+    font-size: 11px !important;
+  }
+}
+
+/* Tablet: stack en 2 filas para evitar truncado */
+@media (max-width: 820px) {
+  .foot-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) !important;
+    grid-template-rows: auto auto !important;
+    grid-template-areas:
+      "brand copy"
+      "meta  meta" !important;
+    gap: 14px 18px !important;
+    text-align: left !important;
+  }
+
+  .foot-brand {
+    grid-area: brand;
+    justify-self: start;
+  }
+
+  .foot-copy {
+    grid-area: copy;
+    justify-self: end;
+  }
+
+  .foot-meta {
+    grid-area: meta;
+    text-align: left !important;
+    padding-top: 12px;
+    border-top: 1px solid rgba(214, 177, 90, 0.12);
+  }
+}
+
+/* Mobile: todo apilado, centrado */
+@media (max-width: 620px) {
+  .foot {
+    padding:
+      32px
+      18px
+      calc(140px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .foot-inner {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas:
+      "brand"
+      "meta"
+      "copy" !important;
+    gap: 14px !important;
+    text-align: center !important;
+  }
+
+  .foot-brand {
+    justify-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .foot-meta {
+    text-align: center !important;
+    border-top: 1px solid rgba(214, 177, 90, 0.12);
+    padding-top: 14px;
+    font-size: 11px !important;
+    line-height: 1.55 !important;
+  }
+
+  .foot-copy {
+    justify-self: center;
+    justify-content: center;
+    font-size: 10.5px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .foot {
+    padding-inline: 14px !important;
+  }
+
+  .foot-brand strong {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================================
+   v26 — Banner pill se oculta al llegar al footer
+   ============================================================ */
+
+.banner {
+  transition:
+    opacity 360ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s linear 0s !important;
+}
+
+.banner.banner--hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(20px) !important;
+  visibility: hidden !important;
+  transition:
+    opacity 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0s linear 320ms !important;
+}
+
+/* El footer ya no necesita reservar tanto espacio inferior cuando el pill se oculta */
+body.has-banner-docked .foot {
+  padding-bottom: 0 !important;
+  border-bottom: 0 !important;
+}
+
+/* ============================================================
+   v27 — Replica del BAN-INTRO debajo del footer
+   ============================================================ */
+
+.ban-intro--docked {
+  position: relative !important;
+  z-index: 1 !important;
+  padding:
+    clamp(36px, 5vw, 56px)
+    clamp(20px, 5vw, 96px)
+    calc(clamp(36px, 5vw, 56px) + env(safe-area-inset-bottom, 0px)) !important;
+  background:
+    radial-gradient(ellipse 70% 80% at 88% 0%, rgba(214, 177, 90, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 60% at 14% 100%, rgba(214, 177, 90, 0.06), transparent 60%),
+    linear-gradient(180deg, #042b27 0%, #032420 100%) !important;
+  border-top: 1px solid rgba(214, 177, 90, 0.18) !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+/* Línea dorada superior decorativa (consistente con el ban-intro principal) */
+.ban-intro--docked::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: clamp(60px, 8vw, 120px) !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--gold-2, #e8c97a), transparent) !important;
+  opacity: 0.6 !important;
+}
+
+/* Layout 2 columnas heredado (info apilada | CTA) */
+.ban-intro--docked .ban-intro-inner {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  grid-template-rows: auto auto !important;
+  grid-template-areas:
+    "kicker cta"
+    "msg    cta" !important;
+  align-items: center !important;
+  column-gap: clamp(24px, 4vw, 56px) !important;
+  row-gap: 8px !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  text-align: left !important;
+}
+
+.ban-intro--docked .ban-intro-kicker {
+  grid-area: kicker !important;
+  align-self: end !important;
+  justify-self: start !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 7px 14px !important;
+  border: 1px solid rgba(214, 177, 90, 0.32) !important;
+  border-radius: 999px !important;
+  background: rgba(214, 177, 90, 0.08) !important;
+  color: var(--gold-2, #e8c97a) !important;
+  font-family: var(--sans, system-ui) !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  width: fit-content !important;
+}
+
+.ban-intro--docked .ban-intro-kicker i {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: var(--gold-2, #e8c97a) !important;
+  box-shadow: 0 0 12px rgba(232, 201, 122, 0.6) !important;
+  animation: banIntroPulse 2.4s ease-in-out infinite;
+}
+
+.ban-intro--docked p {
+  grid-area: msg !important;
+  align-self: start !important;
+  margin: 0 !important;
+  font-family: var(--serif, Georgia) !important;
+  font-size: clamp(14px, 1.2vw, 16px) !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  letter-spacing: -0.005em !important;
+  color: rgba(244, 238, 226, 0.82) !important;
+  max-width: 760px !important;
+}
+
+.ban-intro--docked strong {
+  color: var(--cream, #f4eee2) !important;
+  font-weight: 600 !important;
+}
+
+.ban-intro--docked .ban-intro-cta {
+  grid-area: cta !important;
+  align-self: center !important;
+  justify-self: end !important;
+  position: relative;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  min-height: 44px !important;
+  padding: 0 22px !important;
+  border: 1px solid rgba(214, 177, 90, 0.5) !important;
+  border-radius: 999px !important;
+  color: #1a1a14 !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%),
+    linear-gradient(135deg, #e8c97a 0%, #d6b15a 50%, #c8a24a 100%) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 8px 22px rgba(200, 162, 74, 0.32) !important;
+  font-family: var(--sans, system-ui) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 240ms ease !important;
+}
+
+.ban-intro--docked .ban-intro-cta::after {
+  content: "→";
+  font-family: var(--serif, Georgia);
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.ban-intro--docked .ban-intro-cta:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 14px 32px rgba(200, 162, 74, 0.42) !important;
+}
+
+.ban-intro--docked .ban-intro-cta:hover::after {
+  transform: translateX(4px);
+}
+
+/* ---------- RESPONSIVE replica ---------- */
+
+@media (max-width: 1024px) {
+  .ban-intro--docked .ban-intro-inner {
+    column-gap: 28px !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .ban-intro--docked {
+    padding:
+      clamp(30px, 5vw, 44px)
+      clamp(20px, 5vw, 36px)
+      calc(clamp(30px, 5vw, 44px) + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .ban-intro--docked .ban-intro-inner {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "kicker kicker"
+      "msg    cta" !important;
+    column-gap: 16px !important;
+    row-gap: 12px !important;
+  }
+
+  .ban-intro--docked p {
+    align-self: center !important;
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  .ban-intro--docked .ban-intro-cta {
+    align-self: center !important;
+    min-height: 42px !important;
+    padding: 0 18px !important;
+    font-size: 10.5px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .ban-intro--docked {
+    padding: 28px 18px calc(28px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .ban-intro--docked .ban-intro-inner {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "kicker kicker"
+      "msg    cta" !important;
+    column-gap: 12px !important;
+    row-gap: 10px !important;
+  }
+
+  .ban-intro--docked .ban-intro-kicker {
+    padding: 6px 11px !important;
+    font-size: 9.5px !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .ban-intro--docked p {
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  .ban-intro--docked .ban-intro-cta {
+    min-height: 40px !important;
+    padding: 0 14px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .ban-intro--docked .ban-intro-inner {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas:
+      "kicker"
+      "msg"
+      "cta" !important;
+    row-gap: 12px !important;
+  }
+
+  .ban-intro--docked .ban-intro-cta {
+    justify-self: stretch !important;
+    width: 100% !important;
+    min-height: 44px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .ban-intro--docked {
+    padding: 24px 14px calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .ban-intro--docked p {
+    font-size: 12px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner {
+    transition: opacity 200ms ease !important;
+  }
+
+  .ban-intro--docked .ban-intro-kicker i {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   v28 — Compactar footer + ban-intro docked
+   ============================================================ */
+
+/* El banner pill se oculta automáticamente al llegar al footer (via JS).
+   Por tanto, .lp y .foot ya NO necesitan reservar clearance para él. */
+.lp {
+  padding-bottom: 0 !important;
+}
+
+.foot {
+  padding-top: clamp(28px, 3.5vw, 40px) !important;
+  padding-bottom: clamp(20px, 2.6vw, 28px) !important;
+  min-height: 0 !important;
+}
+
+/* Cuando el banner está oculto (docked-state), aún más compacto */
+body.has-banner-docked .foot {
+  padding-bottom: clamp(20px, 2.6vw, 28px) !important;
+  border-bottom: 0 !important;
+}
+
+/* ----- Ban-intro docked más compacto ----- */
+.ban-intro--docked {
+  padding:
+    clamp(22px, 2.6vw, 30px)
+    clamp(20px, 5vw, 80px)
+    calc(clamp(22px, 2.6vw, 30px) + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.ban-intro--docked .ban-intro-inner {
+  row-gap: 6px !important;
+  column-gap: clamp(20px, 3vw, 40px) !important;
+}
+
+.ban-intro--docked .ban-intro-kicker {
+  padding: 6px 12px !important;
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+}
+
+.ban-intro--docked p {
+  font-size: clamp(13px, 1.1vw, 14.5px) !important;
+  line-height: 1.5 !important;
+  max-width: 680px !important;
+}
+
+.ban-intro--docked .ban-intro-cta {
+  min-height: 40px !important;
+  padding: 0 18px !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.12em !important;
+}
+
+@media (max-width: 820px) {
+  .ban-intro--docked {
+    padding:
+      20px
+      clamp(20px, 5vw, 36px)
+      calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .ban-intro--docked .ban-intro-inner {
+    row-gap: 10px !important;
+    column-gap: 14px !important;
+  }
+
+  .ban-intro--docked p {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  .ban-intro--docked .ban-intro-cta {
+    min-height: 38px !important;
+    padding: 0 14px !important;
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .ban-intro--docked {
+    padding: 18px 18px calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .ban-intro--docked .ban-intro-kicker {
+    padding: 5px 10px !important;
+    font-size: 9.5px !important;
+  }
+
+  .ban-intro--docked p {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .ban-intro--docked .ban-intro-cta {
+    min-height: 42px !important;
+  }
+}
+
+/* ============================================================
+   v29 — Reducir a la mitad padding vertical desde .evento
+   ============================================================ */
+
+.evento {
+  padding-top: clamp(40px, 4.5vw, 66px) !important;
+  padding-bottom: clamp(40px, 4.5vw, 66px) !important;
+}
+
+.qualify {
+  padding-top: clamp(40px, 4.5vw, 66px) !important;
+  padding-bottom: clamp(40px, 4.5vw, 66px) !important;
+}
+
+.how {
+  padding-top: clamp(48px, 5.5vw, 78px) !important;
+  padding-bottom: clamp(48px, 5.5vw, 78px) !important;
+}
+
+.specialties {
+  padding-top: clamp(46px, 5vw, 75px) !important;
+  padding-bottom: clamp(46px, 5vw, 75px) !important;
+}
+
+.location {
+  padding-top: clamp(48px, 5.5vw, 76px) !important;
+  padding-bottom: clamp(48px, 5.5vw, 76px) !important;
+}
+
+.form-s {
+  padding-top: clamp(48px, 6vw, 84px) !important;
+  padding-bottom: clamp(48px, 6vw, 84px) !important;
+}
+
+@media (max-width: 920px) {
+  .evento,
+  .qualify,
+  .how,
+  .specialties,
+  .location,
+  .form-s {
+    padding-top: clamp(36px, 5vw, 55px) !important;
+    padding-bottom: clamp(36px, 5vw, 55px) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .evento,
+  .qualify,
+  .how,
+  .specialties,
+  .location,
+  .form-s {
+    padding-top: clamp(32px, 5vw, 44px) !important;
+    padding-bottom: clamp(32px, 5vw, 44px) !important;
+  }
+}
+
+
 
 
 /* ============================================================
@@ -7109,7 +7774,8 @@ select:focus {
    v32 — QUALIFY: cards de perfil (fit / unfit)
    ============================================================ */
 .qualify {
-  padding-block: clamp(88px, 10vw, 140px) !important;
+  padding-top: clamp(40px, 4.5vw, 66px) !important;
+  padding-bottom: clamp(40px, 4.5vw, 66px) !important;
 }
 
 .qualify .section-head {
@@ -7401,41 +8067,110 @@ select:focus {
 }
 
 /* ============================================================
-   v37 — Footer: espacio para el banner flotante fijo
+   v39 — Capa final: padding secciones + clearance banner inteligente
    ============================================================ */
 :root {
   --banner-offset: clamp(12px, 2vh, 20px);
   --banner-height: 76px;
-  --banner-gap: 20px;
+  --banner-gap: 16px;
   --banner-clearance: calc(
     var(--banner-height) + var(--banner-offset) + var(--banner-gap) +
       env(safe-area-inset-bottom, 0px)
   );
 }
 
-.foot {
-  padding-bottom: calc(clamp(28px, 4vw, 40px) + var(--banner-clearance)) !important;
-  min-height: calc(72px + var(--banner-clearance));
+/* Solo reservar espacio para el pill flotante mientras está visible */
+body:not(.has-banner-docked) .lp {
+  padding-bottom: var(--banner-clearance) !important;
 }
 
-.lp {
-  padding-bottom: var(--banner-clearance);
+body.has-banner-docked .lp {
+  padding-bottom: 0 !important;
+}
+
+/* Footer siempre compacto (sin clearance del banner) */
+.foot {
+  padding-top: clamp(28px, 3.5vw, 40px) !important;
+  padding-bottom: clamp(20px, 2.6vw, 28px) !important;
+  min-height: 0 !important;
+}
+
+/* Padding vertical mitad — desde evento (anula padding-block en capas viejas) */
+.evento,
+.qualify,
+.how,
+.specialties,
+.location,
+.form-s {
+  padding-block: unset !important;
+}
+
+.evento {
+  padding-top: clamp(40px, 4.5vw, 66px) !important;
+  padding-bottom: clamp(40px, 4.5vw, 66px) !important;
+}
+
+.qualify {
+  padding-top: clamp(40px, 4.5vw, 66px) !important;
+  padding-bottom: clamp(40px, 4.5vw, 66px) !important;
+}
+
+.how {
+  padding-top: clamp(48px, 5.5vw, 78px) !important;
+  padding-bottom: clamp(48px, 5.5vw, 78px) !important;
+}
+
+.specialties {
+  padding-top: clamp(46px, 5vw, 75px) !important;
+  padding-bottom: clamp(46px, 5vw, 75px) !important;
+}
+
+.location {
+  padding-top: clamp(48px, 5.5vw, 76px) !important;
+  padding-bottom: clamp(48px, 5.5vw, 76px) !important;
+}
+
+.form-s {
+  padding-top: clamp(48px, 6vw, 84px) !important;
+  padding-bottom: clamp(48px, 6vw, 84px) !important;
+}
+
+@media (max-width: 920px) {
+  :root {
+    --banner-height: 80px;
+    --banner-gap: 18px;
+  }
+
+  .evento,
+  .qualify,
+  .how,
+  .specialties,
+  .location,
+  .form-s {
+    padding-top: clamp(36px, 5vw, 55px) !important;
+    padding-bottom: clamp(36px, 5vw, 55px) !important;
+  }
 }
 
 @media (max-width: 620px) {
   :root {
     --banner-height: 88px;
-    --banner-gap: 24px;
+    --banner-gap: 20px;
   }
 
-  .foot {
-    padding-bottom: calc(36px + var(--banner-clearance)) !important;
-    min-height: calc(80px + var(--banner-clearance));
+  .evento,
+  .qualify,
+  .how,
+  .specialties,
+  .location,
+  .form-s {
+    padding-top: clamp(32px, 5vw, 44px) !important;
+    padding-bottom: clamp(32px, 5vw, 44px) !important;
   }
 }
 
 @media (max-width: 400px) {
   :root {
-    --banner-height: 104px;
+    --banner-height: 96px;
   }
 }

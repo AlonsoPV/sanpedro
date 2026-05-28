@@ -73,3 +73,50 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   window.addEventListener("scroll", requestParallax, { passive: true });
   window.addEventListener("resize", requestParallax);
 }
+
+/* ----------------------------------------------------------
+   1) Replica del ban-intro debajo del footer (siempre en DOM).
+   2) Banner pill flotante: oculto cuando el footer es visible.
+   ---------------------------------------------------------- */
+(function cloneBanIntroAfterFooter() {
+  const banIntro = document.querySelector(".ban-intro");
+  const footer = document.querySelector(".foot");
+  if (!banIntro || !footer) return;
+
+  const clone = banIntro.cloneNode(true);
+  clone.classList.remove("reveal", "is-visible");
+  clone.classList.add("ban-intro--docked");
+  clone.removeAttribute("id");
+  clone.setAttribute("aria-hidden", "false");
+
+  if (footer.parentNode) {
+    footer.parentNode.insertBefore(clone, footer);
+  }
+})();
+
+(function floatBannerVisibility() {
+  const banner = document.querySelector(".banner");
+  const dockedIntro = document.querySelector(".ban-intro--docked");
+  const footer = document.querySelector(".foot");
+  if (!banner) return;
+
+  const target = dockedIntro || footer;
+  if (!target) return;
+
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          banner.classList.add("banner--hidden");
+          document.body.classList.add("has-banner-docked");
+        } else {
+          banner.classList.remove("banner--hidden");
+          document.body.classList.remove("has-banner-docked");
+        }
+      });
+    },
+    { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+  );
+
+  obs.observe(target);
+})();

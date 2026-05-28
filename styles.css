@@ -8174,3 +8174,366 @@ body.has-banner-docked .lp {
     --banner-height: 96px;
   }
 }
+
+/* ============================================================
+   v44 — Zaiah Health branding
+   ============================================================ */
+
+.nav-logo .brand-zaiah {
+  color: #000 !important;
+}
+
+.nav-logo span:not(.brand-zaiah) {
+  color: var(--gold-2, #e8c97a) !important;
+}
+
+.foot-brand .brand-zaiah {
+  color: #fff !important;
+}
+
+.foot-brand strong span:not(.brand-zaiah) {
+  color: var(--gold-2, #e8c97a) !important;
+}
+
+/* ============================================================
+   v46 — Evento: copy ocupa todo el ancho de la sección
+   ============================================================ */
+.evento.scene {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: auto !important;
+  align-items: center !important;
+  justify-items: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.evento .scene-copy,
+.evento .scene-copy.light {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.evento h2 {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.evento .scene-copy p,
+.evento .scene-copy.light p,
+.evento .scene-copy small,
+.evento .scene-copy.light small {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ============================================================
+   v47 — Evento: paleta idéntica a Especialidades (verde profundo)
+   ============================================================ */
+.evento.scene {
+  color: #fff !important;
+  background:
+    radial-gradient(ellipse 60% 50% at 86% 18%, rgba(214, 177, 90, 0.16), transparent 56%),
+    radial-gradient(ellipse 70% 60% at 14% 92%, rgba(11, 90, 82, 0.7), transparent 60%),
+    linear-gradient(168deg, #052f2b 0%, var(--green-2, #063f3a) 48%, #042520 100%) !important;
+}
+
+.evento.scene::before,
+.evento.green-flow::before {
+  display: none !important;
+}
+
+.evento h2,
+.evento .scene-copy,
+.evento .scene-copy.light {
+  color: #fff !important;
+}
+
+.evento h2 em {
+  color: var(--gold-2, #e8c97a) !important;
+  font-style: italic;
+}
+
+.evento .sl {
+  color: var(--gold-2, #e8c97a) !important;
+}
+
+.evento .scene-copy.light p,
+.evento .scene-copy p {
+  color: rgba(250, 250, 247, 0.72) !important;
+}
+
+.evento .scene-copy.light small,
+.evento .scene-copy small {
+  color: rgba(250, 250, 247, 0.55) !important;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+/* ============================================================
+   v50 — TICKER beneficios exclusivos · header + 4 cards
+   ============================================================ */
+.ticker {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(20px, 2.5vw, 28px) !important;
+  width: min(1200px, calc(100% - clamp(36px, 8vw, 96px))) !important;
+  max-width: 1200px !important;
+  margin:
+    clamp(-28px, -3.5vh, -16px)
+    auto
+    clamp(48px, 6vw, 72px) !important;
+  padding:
+    clamp(28px, 3.5vw, 44px)
+    clamp(16px, 2vw, 24px) !important;
+  box-sizing: border-box !important;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(231, 241, 238, 0.55), transparent 70%),
+    linear-gradient(180deg, rgba(250, 250, 247, 0.4) 0%, #fafaf7 48%, #fafaf7 100%) !important;
+  border-radius: 6px !important;
+}
+
+.ticker-head {
+  margin: 0;
+  padding: 0 clamp(4px, 1vw, 8px);
+  text-align: center;
+}
+
+.ticker-head h2 {
+  margin: 0;
+  color: var(--charcoal, #1f2a28);
+  font-family: var(--serif, Georgia);
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.ticker-head h2 em {
+  color: var(--green-2, #063f3a);
+  font-style: italic;
+}
+
+.ticker-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(10px, 1vw, 14px) !important;
+  counter-reset: ticker-counter;
+}
+
+.ticker-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  grid-template-rows: auto 1fr !important;
+  grid-template-areas:
+    "kicker num"
+    "desc desc" !important;
+  align-content: start !important;
+  gap: 10px 10px !important;
+  min-height: clamp(168px, 16vw, 200px) !important;
+  height: 100% !important;
+  padding: clamp(20px, 2vw, 24px) !important;
+}
+
+.ticker-card::before {
+  grid-area: num !important;
+  position: static !important;
+  justify-self: end !important;
+  align-self: start !important;
+  font-size: clamp(26px, 2.6vw, 32px) !important;
+  line-height: 1 !important;
+  color: rgba(200, 162, 74, 0.35);
+}
+
+.ticker-kicker {
+  grid-area: kicker !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--green-2, #063f3a) !important;
+  font-family: var(--serif, Georgia) !important;
+  font-size: clamp(17px, 1.35vw, 20px) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+}
+
+.ticker-kicker::before {
+  display: none !important;
+}
+
+.ticker-desc,
+.ticker-title {
+  grid-area: desc !important;
+  align-self: end !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--ink-soft, #455250) !important;
+  font-family: var(--sans, system-ui) !important;
+  font-size: clamp(13px, 1vw, 14.5px) !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.ticker-card::after {
+  left: clamp(20px, 2vw, 24px) !important;
+}
+
+.ticker-card:hover::before {
+  color: rgba(200, 162, 74, 0.65);
+}
+
+@media (max-width: 1180px) {
+  .ticker-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .ticker {
+    width: min(720px, calc(100% - 44px)) !important;
+  }
+
+  .ticker-card {
+    min-height: clamp(160px, 18vw, 180px) !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .ticker {
+    width: calc(100% - 40px) !important;
+  }
+
+  .ticker-head h2 {
+    font-size: clamp(24px, 4vw, 32px);
+  }
+}
+
+@media (max-width: 620px) {
+  .ticker {
+    width: calc(100% - 36px) !important;
+    padding: 22px 16px !important;
+    gap: 18px !important;
+  }
+
+  .ticker-head {
+    text-align: left;
+  }
+
+  .ticker-head h2 {
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.2;
+  }
+
+  .ticker-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .ticker-card {
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "num kicker"
+      "desc desc" !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 18px !important;
+    gap: 8px 12px !important;
+  }
+
+  .ticker-card::before {
+    justify-self: start !important;
+    font-size: 24px !important;
+  }
+
+  .ticker-kicker {
+    font-size: 16px !important;
+  }
+
+  .ticker-desc {
+    font-size: 13.5px !important;
+  }
+}
+
+/* ============================================================
+   v49 — CTAs "Apartar mi lugar" · verde #5ADA90
+   ============================================================ */
+:root {
+  --cta-mint: #5ada90;
+  --cta-mint-hover: #4bc97f;
+  --cta-mint-active: #3db872;
+  --cta-mint-text: #042b27;
+}
+
+.nav-btn,
+.ban-intro-cta,
+.ban-intro--docked .ban-intro-cta,
+.banner-cta,
+.banner a,
+.form-card button {
+  color: var(--cta-mint-text) !important;
+  background: var(--cta-mint) !important;
+  border: 1px solid rgba(4, 43, 39, 0.12) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 8px 22px rgba(90, 218, 144, 0.35) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.nav-btn:hover,
+.ban-intro-cta:hover,
+.ban-intro--docked .ban-intro-cta:hover,
+.banner-cta:hover,
+.banner a:hover,
+.form-card button:hover {
+  color: var(--cta-mint-text) !important;
+  background: var(--cta-mint-hover) !important;
+  border-color: rgba(4, 43, 39, 0.16) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 14px 32px rgba(90, 218, 144, 0.45) !important;
+  filter: none !important;
+  transform: translateY(-2px);
+}
+
+.nav-btn:active,
+.ban-intro-cta:active,
+.ban-intro--docked .ban-intro-cta:active,
+.banner-cta:active,
+.banner a:active,
+.form-card button:active {
+  background: var(--cta-mint-active) !important;
+  transform: translateY(0);
+}
+
+/* Quitar gradientes dorados heredados */
+.ban-intro-cta,
+.ban-intro--docked .ban-intro-cta,
+.form-card button {
+  background: var(--cta-mint) !important;
+}
+
+.ban-intro-cta::before,
+.form-card button::before {
+  display: none !important;
+}
+
+.nav-btn:focus-visible,
+.ban-intro-cta:focus-visible,
+.banner-cta:focus-visible,
+.form-card button:focus-visible {
+  outline: 2px solid var(--cta-mint);
+  outline-offset: 3px;
+}
+
+.hero h1 .hero-date {
+  color: var(--gold-2, #e8c97a);
+  font-style: normal;
+}

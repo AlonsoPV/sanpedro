@@ -8537,3 +8537,178 @@ body.has-banner-docked .lp {
   color: var(--gold-2, #e8c97a);
   font-style: normal;
 }
+
+/* ============================================================
+   v52 — Desarrolladores · foto Forbes + trayectoria
+   ============================================================ */
+
+.developers {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr) !important;
+  align-items: center !important;
+  gap: clamp(36px, 5vw, 72px) !important;
+  padding-top: clamp(48px, 5.5vw, 78px) !important;
+  padding-bottom: clamp(48px, 5.5vw, 78px) !important;
+  background:
+    radial-gradient(ellipse 42% 34% at 8% 22%, rgba(231, 241, 238, 0.65), transparent 62%),
+    radial-gradient(ellipse 36% 28% at 94% 84%, rgba(214, 177, 90, 0.07), transparent 58%),
+    linear-gradient(180deg, #f8f7f2 0%, #ffffff 48%, #f4faf7 100%) !important;
+}
+
+.developers::before {
+  display: none !important;
+}
+
+.dev-photo {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  border-radius: 18px;
+  border: 1px solid rgba(6, 63, 58, 0.1);
+  box-shadow:
+    0 28px 80px rgba(6, 63, 58, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.65) inset;
+  background: #fff;
+}
+
+.dev-photo::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.dev-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 18px;
+}
+
+.developers .scene-copy {
+  max-width: 520px !important;
+}
+
+.developers h2 {
+  font-size: clamp(34px, 4vw, 56px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.022em !important;
+}
+
+.dev-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: clamp(28px, 3vw, 36px) 0 0;
+  padding: 0;
+}
+
+.dev-stat {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(16px, 2vw, 24px);
+  padding: clamp(18px, 2vw, 22px) 0;
+  border-bottom: 1px solid rgba(31, 42, 40, 0.08);
+}
+
+.dev-stat:first-child {
+  border-top: 1px solid rgba(31, 42, 40, 0.08);
+}
+
+.dev-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(200, 162, 74, 0.42);
+  color: var(--green-2, #063f3a);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 1px 0 rgba(214, 177, 90, 0.18) inset,
+    0 8px 22px rgba(6, 63, 58, 0.08);
+}
+
+.dev-stat p {
+  margin: 0;
+  color: var(--charcoal, #1f2a28);
+  font-size: clamp(12px, 1vw, 13.5px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dev-stat:hover .dev-num {
+  background: var(--green-2, #063f3a);
+  border-color: var(--green-2, #063f3a);
+  color: #fff;
+}
+
+@media (max-width: 1180px) {
+  .developers {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .developers {
+    grid-template-columns: 1fr !important;
+    gap: clamp(32px, 5vw, 48px) !important;
+    padding-top: clamp(36px, 5vw, 55px) !important;
+    padding-bottom: clamp(36px, 5vw, 55px) !important;
+  }
+
+  .dev-photo {
+    order: -1;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .dev-photo img {
+    border-radius: 16px;
+  }
+
+  .developers .scene-copy {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .developers {
+    padding-top: clamp(32px, 5vw, 44px) !important;
+    padding-bottom: clamp(32px, 5vw, 44px) !important;
+  }
+
+  .dev-stat {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 14px;
+    padding: 16px 0;
+  }
+
+  .dev-num {
+    width: 44px;
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .dev-stat p {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+  }
+}

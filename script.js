@@ -1,4 +1,5 @@
 const revealItems = document.querySelectorAll(".reveal:not(.is-visible)");
+const staggerParents = document.querySelectorAll(".reveal-stagger");
 
 async function initRevealMotion() {
   let motionAnimate = null;
@@ -23,18 +24,23 @@ async function initRevealMotion() {
         if (motionAnimate) {
           motionAnimate(
             entry.target,
-            { opacity: [0, 1], y: [26, 0] },
-            { duration: 0.8, easing: [0.22, 1, 0.36, 1] }
+            { opacity: [0, 1], y: [18, 0] },
+            { duration: 0.85, easing: [0.22, 1, 0.36, 1] }
           );
         }
 
         revealObserver.unobserve(entry.target);
       });
     },
-    { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
   );
 
   revealItems.forEach((item) => revealObserver.observe(item));
+
+  staggerParents.forEach((parent) => {
+    const children = parent.querySelectorAll(":scope > .reveal:not(.is-visible)");
+    children.forEach((child) => revealObserver.observe(child));
+  });
 }
 
 initRevealMotion();
@@ -48,8 +54,8 @@ function updateParallax() {
   parallaxItems.forEach((image) => {
     const rect = image.parentElement.getBoundingClientRect();
     const progress = (rect.top + rect.height / 2 - viewport / 2) / viewport;
-    const translate = Math.max(-18, Math.min(18, progress * -22));
-    image.style.transform = `scale(1.06) translate3d(0, ${translate}px, 0)`;
+    const translate = Math.max(-10, Math.min(10, progress * -12));
+    image.style.transform = `scale(1.04) translate3d(0, ${translate}px, 0)`;
   });
 
   ticking = false;

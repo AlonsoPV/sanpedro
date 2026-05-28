@@ -7,36 +7,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=2" />
+    <link rel="preload" as="image" href="./assets/images/hero-banner.webp" fetchpriority="high" />
+    <link rel="stylesheet" href="./styles.css?v=37" />
   </head>
   <body>
-    <div class="lp">
-      <nav class="nav reveal is-visible">
-        <a class="nav-logo" href="#top" aria-label="We Health">We<span>Health</span></a>
-        <div class="nav-right">
-          <span class="nav-pill"><i></i> Evento privado · 11 jun · 7:30 pm</span>
-          <a class="nav-btn" href="#reserva">Apartar mi lugar</a>
-        </div>
-      </nav>
+    <nav class="nav is-visible" aria-label="Principal">
+      <a class="nav-logo" href="#top" aria-label="We Health">We<span>Health</span></a>
+      <div class="nav-right">
+        <span class="nav-pill"><i></i> Evento privado · 11 jun · 7:30 pm</span>
+        <a class="nav-btn" href="#reserva">Apartar mi lugar <span aria-hidden="true">→</span></a>
+      </div>
+    </nav>
 
-      <aside class="banner reveal is-visible">
-        <div class="ban-dot"></div>
-        <p>Solo <strong>5 consultorios</strong> al precio de preventa — <strong>Jueves 11 de junio · 7:30 pm · Av. Patriotismo 334, CDMX.</strong></p>
-        <a href="#reserva">Apartar mi lugar</a>
+    <div class="lp">
+      <section class="ban-intro reveal" aria-label="Preventa de lanzamiento">
+        <div class="ban-intro-inner">
+          <span class="ban-intro-kicker"><i></i> Preventa exclusiva</span>
+          <p>Solo <strong>5 consultorios</strong> al precio de preventa — <strong>Jueves 11 de junio · 7:30 pm · Av. Patriotismo 334, CDMX.</strong> Después de esa noche, este precio no vuelve.</p>
+          <a class="ban-intro-cta" href="#reserva">Apartar mi lugar</a>
+        </div>
+      </section>
+
+      <aside class="banner reveal is-visible" aria-label="Evento privado de lanzamiento">
+        <div class="banner-col banner-col-info">
+          <span class="banner-badge"><i aria-hidden="true"></i>5 lugares · Preventa</span>
+          <p class="banner-details">
+            <span class="banner-when"><strong>Jueves 11 jun</strong> · 7:30 pm</span>
+            <span class="banner-where">Av. Patriotismo 334, CDMX</span>
+          </p>
+        </div>
+        <div class="banner-col banner-col-action">
+          <a class="banner-cta" href="#reserva">
+            Apartar mi lugar
+            <span class="banner-cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
       </aside>
 
       <header class="hero scene" id="top">
         <div class="hero-media parallax">
-          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=85&auto=format&fit=crop" alt="Interior boutique de wellness médico We Health" />
+          <img
+            src="./assets/images/hero-banner.webp"
+            alt="We Health — fachada del edificio boutique en San Pedro de los Pinos"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
-        <div class="hero-gradient"></div>
         <div class="hero-copy reveal is-visible">
           <div class="eyebrow">Flipping inmobiliario · Preventa · CDMX</div>
-          <h1>Compras hoy.<br />Recibes renta mensual.<br /><em>Sin operarlo un solo día.</em></h1>
-          <p>Consultorios boutique en Av. Patriotismo 334 para inversionistas que buscan salud, patrimonio y operación resuelta desde el día uno.</p>
+          <h1>Compras hoy.<br />Recibes renta mensual.<br /><em>Sin operarlo<br />un solo día.</em></h1>
+          <p>We Health es un proyecto de consultorios boutique en Av. Patriotismo 334, CDMX. Especialidades no invasivas, entrega 2027, renta fija mensual. La operación corre completamente por nosotros.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#evento">Ver evento privado</a>
-            <a class="btn ghost" href="#modelo">Cómo funciona</a>
+            <a class="btn primary" href="#evento">Ver el evento del 11 de junio</a>
+            <a class="btn ghost" href="#modelo">Cómo funciona el modelo</a>
           </div>
         </div>
         <div class="hero-note reveal is-visible">
@@ -46,39 +70,24 @@
         </div>
       </header>
 
-      <main>
-        <section class="ticker reveal" aria-label="Puntos clave">
-          <span>Flipping con renta mensual fija</span>
-          <span>Operación 100% incluida</span>
-          <span>Especialidades no invasivas</span>
-          <span>Entrega 2027 · Desde $1.5M MXN</span>
-        </section>
-
-        <section class="intro scene cream-to-green">
-          <div class="scene-copy reveal">
-            <span class="sl dark">Apertura</span>
-            <h2>Una inversión médica que no se siente como una operación inmobiliaria tradicional.</h2>
-            <p>We Health combina un activo patrimonial, demanda creciente en bienestar preventivo y una operación boutique diseñada para que el propietario no gestione el espacio.</p>
-          </div>
-          <div class="scene-visual reveal parallax">
-            <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=1200&q=85&auto=format&fit=crop" alt="Arquitectura boutique en tonos cálidos" />
-          </div>
-        </section>
-
-        <section class="scene problem green-band">
-          <div class="scene-visual reveal parallax">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=85&auto=format&fit=crop" alt="Entorno médico premium" />
-          </div>
-          <div class="scene-copy light reveal">
-            <span class="sl">La tensión</span>
-            <h2>Invertir en salud suele exigir tiempo, criterio operativo y seguimiento diario.</h2>
-            <p>Este proyecto está diseñado para quienes quieren participar en un sector resiliente sin convertir su inversión en otra empresa que atender.</p>
-            <div class="mini-list">
-              <span>Sin llamadas operativas</span>
-              <span>Sin vacancias por resolver</span>
-              <span>Sin gestión del consultorio</span>
-            </div>
-          </div>
+      <main class="flow">
+        <section class="ticker reveal-stagger" id="beneficios" aria-label="Puntos clave">
+          <article class="ticker-card reveal">
+            <span class="ticker-kicker">Modelo</span>
+            <p class="ticker-title">Flipping con renta mensual fija</p>
+          </article>
+          <article class="ticker-card reveal">
+            <span class="ticker-kicker">Operación</span>
+            <p class="ticker-title">100% incluida desde el día uno</p>
+          </article>
+          <article class="ticker-card reveal">
+            <span class="ticker-kicker">Enfoque</span>
+            <p class="ticker-title">Especialidades no invasivas</p>
+          </article>
+          <article class="ticker-card reveal">
+            <span class="ticker-kicker">Preventa</span>
+            <p class="ticker-title">Entrega 2027 · Desde $1.5M MXN</p>
+          </article>
         </section>
 
         <section class="evento scene dark-cinema" id="evento">
@@ -112,10 +121,13 @@
             <span class="sl dark">Perfil del inversionista</span>
             <h2>Este modelo está diseñado para un perfil <em>específico.</em></h2>
           </div>
-          <div class="q-grid">
-            <article class="q-col reveal">
-              <h3><span>✓</span> Este consultorio es para ti si...</h3>
-              <ul>
+          <div class="q-grid reveal-stagger">
+            <article class="q-col q-col--fit reveal">
+              <header class="q-col-head">
+                <span class="q-badge q-badge--yes" aria-hidden="true">✓</span>
+                <h3>Este consultorio es para ti si...</h3>
+              </header>
+              <ul class="q-list">
                 <li>Ya tienes experiencia en bienes raíces y quieres diversificar en un sector más resiliente.</li>
                 <li>Buscas flipping con renta mensual fija sin gestionar operaciones.</li>
                 <li>Quieres participar en salud como inversionista, no como operador.</li>
@@ -123,9 +135,12 @@
                 <li>Tus otros proyectos merecen tu atención, no esta inversión.</li>
               </ul>
             </article>
-            <article class="q-col muted reveal">
-              <h3><span>×</span> Este proyecto no es para ti si...</h3>
-              <ul>
+            <article class="q-col q-col--unfit muted reveal">
+              <header class="q-col-head">
+                <span class="q-badge q-badge--no" aria-hidden="true">×</span>
+                <h3>Este proyecto no es para ti si...</h3>
+              </header>
+              <ul class="q-list">
                 <li>Eres médico y buscas un espacio para atender a tus propios pacientes.</li>
                 <li>Necesitas un consultorio para especialidades invasivas o quirúrgicas.</li>
                 <li>Quieres operar o gestionar el consultorio de forma directa.</li>
@@ -140,24 +155,31 @@
           <div class="scene-copy reveal">
             <span class="sl dark">El modelo</span>
             <h2>Flipping inmobiliario. <em>Así funciona tu inversión.</em></h2>
+            <p>Tres pasos. Cero gestión operativa. Una renta mensual que llega sola.</p>
           </div>
-          <div class="steps">
-            <article class="step reveal">
-              <span>01</span>
-              <h3>Compras en preventa</h3>
-              <p>Adquieres la propiedad desde $1.5M MXN al precio más bajo del proyecto. Los consultorios ya están en construcción.</p>
-            </article>
-            <article class="step reveal">
-              <span>02</span>
-              <h3>We Health opera todo</h3>
-              <p>Desde la entrega, We Health corre la operación completa. Tú no tomas ninguna decisión operativa.</p>
-            </article>
-            <article class="step reveal">
-              <span>03</span>
-              <h3>Recibes renta mensual fija</h3>
-              <p>Desde el primer mes de operación recibes tu renta mensual fija. Tu dinero trabaja. Tú no.</p>
-            </article>
-          </div>
+          <ol class="steps reveal-stagger" aria-label="Cómo funciona la inversión">
+            <li class="step reveal">
+              <span class="step-num">01</span>
+              <div class="step-body">
+                <h3>Compras en preventa</h3>
+                <p>Adquieres la propiedad desde $1.5M MXN al precio más bajo del proyecto. Los consultorios ya están en construcción.</p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">02</span>
+              <div class="step-body">
+                <h3>We Health opera todo</h3>
+                <p>Desde la entrega, We Health corre la operación completa. Tú no tomas ninguna decisión operativa.</p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">03</span>
+              <div class="step-body">
+                <h3>Recibes renta mensual fija</h3>
+                <p>Desde el primer mes de operación recibes tu renta mensual fija. Tu dinero trabaja. Tú no.</p>
+              </div>
+            </li>
+          </ol>
         </section>
 
         <section class="scene specialties green-flow">
@@ -166,24 +188,95 @@
             <h2>Exclusivamente <em>no invasivas.</em></h2>
             <p>We Health opera con especialidades de bienestar y salud preventiva. No contempla cirugías, urgencias ni procedimientos invasivos.</p>
           </div>
-          <div class="spec-grid">
-            <article class="spec reveal"><span>◎</span><h3>Nutrición clínica</h3><p>Consultas y seguimiento nutricional</p></article>
-            <article class="spec reveal"><span>◎</span><h3>Psicología</h3><p>Salud mental y terapia</p></article>
-            <article class="spec reveal"><span>◎</span><h3>Medicina funcional</h3><p>Preventiva y antienvejecimiento</p></article>
-            <article class="spec reveal"><span>◎</span><h3>Dermatología estética</h3><p>Procedimientos no invasivos</p></article>
-            <article class="spec reveal"><span>◎</span><h3>Medicina integrativa</h3><p>Acupuntura y terapias complementarias</p></article>
-            <article class="spec reveal"><span>◎</span><h3>Bienestar ejecutivo</h3><p>Check-ups y medicina preventiva</p></article>
+          <div class="spec-grid reveal-stagger">
+            <article class="spec reveal" data-spec="nutricion">
+              <div class="spec-inner">
+                <div class="spec-icon" aria-hidden="true">
+                  <img src="./assets/icons/spec-nutricion.svg" alt="" width="30" height="30" decoding="async" />
+                </div>
+                <div class="spec-copy">
+                  <span class="spec-num">01</span>
+                  <h3>Nutrición clínica</h3>
+                  <p>Consultas y seguimiento nutricional</p>
+                </div>
+              </div>
+            </article>
+            <article class="spec reveal" data-spec="psicologia">
+              <div class="spec-inner">
+                <div class="spec-icon" aria-hidden="true">
+                  <img src="./assets/icons/spec-psicologia.svg" alt="" width="30" height="30" decoding="async" />
+                </div>
+                <div class="spec-copy">
+                  <span class="spec-num">02</span>
+                  <h3>Psicología</h3>
+                  <p>Salud mental y terapia</p>
+                </div>
+              </div>
+            </article>
+            <article class="spec reveal" data-spec="funcional">
+              <div class="spec-inner">
+                <div class="spec-icon" aria-hidden="true">
+                  <img src="./assets/icons/spec-funcional.svg" alt="" width="30" height="30" decoding="async" />
+                </div>
+                <div class="spec-copy">
+                  <span class="spec-num">03</span>
+                  <h3>Medicina funcional</h3>
+                  <p>Preventiva y antienvejecimiento</p>
+                </div>
+              </div>
+            </article>
+            <article class="spec reveal" data-spec="dermatologia">
+              <div class="spec-inner">
+                <div class="spec-icon" aria-hidden="true">
+                  <img src="./assets/icons/spec-dermatologia.svg" alt="" width="30" height="30" decoding="async" />
+                </div>
+                <div class="spec-copy">
+                  <span class="spec-num">04</span>
+                  <h3>Dermatología estética</h3>
+                  <p>Procedimientos no invasivos</p>
+                </div>
+              </div>
+            </article>
+            <article class="spec reveal" data-spec="integrativa">
+              <div class="spec-inner">
+                <div class="spec-icon" aria-hidden="true">
+                  <img src="./assets/icons/spec-integrativa.svg" alt="" width="30" height="30" decoding="async" />
+                </div>
+                <div class="spec-copy">
+                  <span class="spec-num">05</span>
+                  <h3>Medicina integrativa</h3>
+                  <p>Acupuntura y terapias complementarias</p>
+                </div>
+              </div>
+            </article>
+            <article class="spec reveal" data-spec="bienestar">
+              <div class="spec-inner">
+                <div class="spec-icon" aria-hidden="true">
+                  <img src="./assets/icons/spec-bienestar.svg" alt="" width="30" height="30" decoding="async" />
+                </div>
+                <div class="spec-copy">
+                  <span class="spec-num">06</span>
+                  <h3>Bienestar ejecutivo</h3>
+                  <p>Check-ups y medicina preventiva</p>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
 
-        <section class="scene location cream-flow">
+        <section class="scene location cream-flow" id="ubicacion">
           <div class="location-card reveal parallax">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=85&auto=format&fit=crop" alt="Edificio boutique en ciudad" />
+            <img src="./assets/images/mapa-wehealth.png" alt="Mapa de ubicación We Health — Av. Patriotismo 334, CDMX" width="1200" height="900" decoding="async" />
           </div>
           <div class="scene-copy reveal">
             <span class="sl dark">Ubicación</span>
-            <h2>Av. Patriotismo 334, CDMX.</h2>
+            <h2>Av. Patriotismo 334, <em>CDMX.</em></h2>
             <p>Un punto conectado para un concepto médico boutique, pensado para bienestar ejecutivo, prevención y atención no invasiva.</p>
+            <ul class="loc-chips" aria-label="Cercanía y conectividad">
+              <li>5 min de WTC</li>
+              <li>San Pedro de los Pinos</li>
+              <li>Conectividad urbana</li>
+            </ul>
             <div class="address-pill">Entrega estimada 2027 · Preventa activa</div>
           </div>
         </section>
@@ -232,11 +325,17 @@
       </main>
 
       <footer class="foot">
-        <strong>We<span>Health</span> · Av. Patriotismo 334, CDMX</strong>
-        <p>Consultorios boutique · Flipping con renta mensual fija · Entrega 2027</p>
-        <small>© 2026 We Health. Todos los derechos reservados.</small>
+        <div class="foot-inner">
+          <a class="foot-brand" href="#top" aria-label="We Health">
+            <strong>We<span>Health</span></strong>
+            <span class="foot-dot" aria-hidden="true"></span>
+            <span class="foot-addr">Av. Patriotismo 334, CDMX</span>
+          </a>
+          <p class="foot-meta">Consultorios boutique · Flipping con renta mensual · Entrega 2027</p>
+          <small class="foot-copy">© 2026 We Health</small>
+        </div>
       </footer>
     </div>
-    <script src="./script.js?v=2"></script>
+    <script src="./script.js?v=3"></script>
   </body>
 </html>

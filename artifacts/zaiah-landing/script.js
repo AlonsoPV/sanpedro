@@ -1,80 +1,3 @@
-/* ============================================================
-   FORM SUBMISSION → /api/register
-   ============================================================ */
-(function initForm() {
-  const form = document.querySelector(".form-card");
-  if (!form) return;
-
-  const btn = form.querySelector("button[type='button']");
-  if (!btn) return;
-
-  const inputs = form.querySelectorAll("input");
-  const selects = form.querySelectorAll("select");
-
-  const [nombreInput, apellidoInput] = inputs;
-  const emailInput = form.querySelector("input[type='email']");
-  const telefonoInput = Array.from(inputs).find((i) => i.placeholder && i.placeholder.includes("+52"));
-  const [perfilSelect, capitalSelect] = selects;
-
-  function showState(state, message) {
-    let msg = form.querySelector(".form-feedback");
-    if (!msg) {
-      msg = document.createElement("p");
-      msg.className = "form-feedback";
-      btn.insertAdjacentElement("afterend", msg);
-    }
-    msg.textContent = message;
-    msg.className = "form-feedback form-feedback--" + state;
-  }
-
-  btn.addEventListener("click", async () => {
-    const nombre = (nombreInput?.value || "").trim();
-    const apellido = (apellidoInput?.value || "").trim();
-    const email = (emailInput?.value || "").trim();
-    const telefono = (telefonoInput?.value || "").trim();
-    const perfil = perfilSelect?.value || "";
-    const capital = capitalSelect?.value || "";
-
-    if (!nombre || !email) {
-      showState("error", "Por favor ingresa tu nombre y correo electrónico.");
-      return;
-    }
-    if (!email.includes("@")) {
-      showState("error", "Por favor ingresa un correo válido.");
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = "Enviando…";
-
-    try {
-      const res = await fetch("/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, apellido, email, telefono, perfil, capital }),
-      });
-
-      const data = await res.json().catch(() => ({}));
-
-      if (res.ok) {
-        form.innerHTML = `
-          <div class="form-success">
-            <strong>¡Lugar apartado!</strong>
-            <p>Te confirmamos en menos de 24 horas. Revisa tu correo (${email}).</p>
-          </div>`;
-      } else {
-        showState("error", data.error || "Ocurrió un error. Intenta de nuevo.");
-        btn.disabled = false;
-        btn.textContent = "Apartar mi lugar · Evento 11 junio";
-      }
-    } catch (err) {
-      showState("error", "No se pudo conectar. Intenta de nuevo.");
-      btn.disabled = false;
-      btn.textContent = "Apartar mi lugar · Evento 11 junio";
-    }
-  });
-})();
-
 const revealItems = document.querySelectorAll(".reveal:not(.is-visible)");
 const staggerParents = document.querySelectorAll(".reveal-stagger");
 
@@ -196,4 +119,96 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   );
 
   obs.observe(target);
+})();
+
+/* ----------------------------------------------------------
+   Formulario de reserva · validación + feedback
+   Agrega tu endpoint en data-endpoint del form, ej:
+   https://formspree.io/f/xxxxxxxx
+   ---------------------------------------------------------- */
+(function initReservaForm() {
+  const form = document.getElementById("reserva-form");
+  if (!form) return;
+
+  const submitBtn = form.querySelector(".form-submit");
+  const statusEl = form.querySelector(".form-status");
+  const defaultBtnLabel = submitBtn?.textContent?.trim() || "QUIERO ASISTIR AL EVENTO";
+
+  function setStatus(type, message) {
+    if (!statusEl) return;
+    statusEl.hidden = false;
+    statusEl.className = `form-status form-status--${type}`;
+    statusEl.textContent = message;
+  }
+
+  function clearStatus() {
+    if (!statusEl) return;
+    statusEl.hidden = true;
+    statusEl.className = "form-status";
+    statusEl.textContent = "";
+  }
+
+  function setLoading(isLoading) {
+    form.classList.toggle("is-loading", isLoading);
+    if (!submitBtn) return;
+    submitBtn.disabled = isLoading;
+    submitBtn.textContent = isLoading ? "Enviando…" : defaultBtnLabel;
+  }
+
+  form.addEventListener("input", () => {
+    if (statusEl && !statusEl.hidden && statusEl.classList.contains("form-status--error")) {
+      clearStatus();
+    }
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    clearStatus();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const endpoint = form.dataset.endpoint?.trim();
+    const formData = new FormData(form);
+
+    setLoading(true);
+
+    try {
+      if (endpoint) {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+      } else {
+        await new Promise((resolve) => window.setTimeout(resolve, 650));
+        console.info(
+          "[reserva-form] Configura data-endpoint para envío real. Datos:",
+          Object.fromEntries(formData.entries())
+        );
+      }
+
+      form.reset();
+      setStatus(
+        "success",
+        "¡Listo! Recibimos tu registro. Te contactaremos pronto con los accesos al evento."
+      );
+      statusEl?.focus({ preventScroll: true });
+    } catch (error) {
+      console.error("[reserva-form] Error al enviar:", error);
+      setStatus(
+        "error",
+        "No pudimos enviar tu registro. Revisa tu conexión e inténtalo de nuevo."
+      );
+      statusEl?.focus({ preventScroll: true });
+    } finally {
+      setLoading(false);
+    }
+  });
 })();

@@ -41,13 +41,12 @@ app.post("/api/register", async (req, res) => {
       const cols = {
         email_mm2p9et1: { email, text: email },
         phone_mm2px8fp: { phone: telefono || "", countryShortName: "MX" },
-        text_mm3khb4b: perfil || "",
       };
       if (capitalNum) cols.numeric_mm2q19q1 = capitalNum;
 
       const columnValues = JSON.stringify(cols);
 
-      const mutation = `mutation {
+      const createMutation = `mutation {
         create_item(
           board_id: ${MONDAY_BOARD_ID},
           group_id: "${MONDAY_GROUP_ID}",
@@ -56,7 +55,19 @@ app.post("/api/register", async (req, res) => {
         ) { id }
       }`;
 
-      await mondayRequest(mutation);
+      const createResult = await mondayRequest(createMutation);
+      const itemId = createResult?.data?.create_item?.id;
+
+      if (itemId && (perfil || capital)) {
+        const lines = [];
+        if (perfil)  lines.push(`📋 Me interesa comprar: ${perfil}`);
+        if (capital) lines.push(`💰 Capital disponible: ${capital}`);
+        const updateBody = lines.join("\\n");
+        const updateMutation = `mutation {
+          create_update(item_id: ${itemId}, body: "${updateBody}") { id }
+        }`;
+        await mondayRequest(updateMutation);
+      }
     } catch (err) {
       console.error("Monday.com error:", err.message);
     }

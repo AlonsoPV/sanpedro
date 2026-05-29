@@ -1,0 +1,87 @@
+ "columns": [
+          {
+            "id": "name",
+            "title": "Name",
+            "type": "name"
+          },
+          {
+            "id": "subtasks_mm01bfr4",
+            "title": "Subelementos",
+            "type": "subtasks"
+          },
+          {
+            "id": "person",
+            "title": "Responsable",
+            "type": "people"
+          },
+          {
+            "id": "phone_mm2px8fp",
+            "title": "Celular",
+            "type": "phone"
+          },
+          {
+            "id": "text_mm3khb4b",
+            "title": "Especialidad",
+            "type": "text"
+          },
+          {
+            "id": "duration_mm2vyxhs",
+            "title": "Seguimiento del tiempo",
+            "type": "time_tracking"
+          },
+          {
+            "id": "status",
+            "title": "Estado",
+            "type": "status"
+          },
+          {
+            "id": "color_mkxpf3xj",
+            "title": "Canal",
+            "type": "status"
+          },
+          {
+            "id": "color_mkz4wkts",
+            "title": "Prioridad",
+            "type": "status"
+          },
+          {
+            "id": "email_mm2pnd1d",
+            "title": "Correo electrónico",
+            "type": "email"
+          },
+          {
+            "id": "color_mkxp615n",
+            "title": "Razón Descarte",
+            "type": "status"
+          },
+          {
+            "id": "color_mkzheqmc",
+            "title": "Estatus Post Evento",
+            "type": "status"
+          },
+          {
+            "id": "date_mm2smv0m",
+            "title": "Fecha de Creación",
+            "type": "date"
+          },
+          {
+            "id": "date_mkygtaaa",
+            "title": "Fecha de contacto",
+            "type": "date"
+          },
+          {
+            "id": "email_mm2p9et1",
+            "title": "Correo",
+            "type": "email"
+          },
+          {
+            "id": "color_mm2q3ktr",
+            "title": "Estado del Lead",
+            "type": "status"
+          },
+          {
+            "id": "numeric_mm2q19q1",
+            "title": "Capital de Entrada",
+            "type": "numbers"
+          },
+          {

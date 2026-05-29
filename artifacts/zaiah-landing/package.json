@@ -1,0 +1,9 @@
+{
+  "name": "@workspace/zaiah-landing",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node -e \"const fs=require('fs'),path=require('path');const src=__dirname,dst=path.join(__dirname,'dist');fs.mkdirSync(dst,{recursive:true});['index.html','styles.css','script.js'].forEach(f=>fs.copyFileSync(path.join(src,f),path.join(dst,f)));fs.cpSync(path.join(src,'assets'),path.join(dst,'assets'),{recursive:true});console.log('Build complete');\""
+  }
+}

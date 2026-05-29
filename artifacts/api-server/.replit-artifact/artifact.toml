@@ -1,0 +1,18 @@
+kind = "api"
+title = "API Server"
+version = "1.0.0"
+id = "artifacts/api-server"
+
+[[services]]
+name = "API Server"
+paths = ["/api"]
+localPort = 8080
+
+[services.development]
+run = "node src/index.js"
+
+[services.production]
+run = "node artifacts/api-server/src/index.js"
+
+[services.env]
+PORT = "8080"

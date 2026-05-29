@@ -120,3 +120,95 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
   obs.observe(target);
 })();
+
+/* ----------------------------------------------------------
+   Formulario de reserva · validación + feedback
+   Agrega tu endpoint en data-endpoint del form, ej:
+   https://formspree.io/f/xxxxxxxx
+   ---------------------------------------------------------- */
+(function initReservaForm() {
+  const form = document.getElementById("reserva-form");
+  if (!form) return;
+
+  const submitBtn = form.querySelector(".form-submit");
+  const statusEl = form.querySelector(".form-status");
+  const defaultBtnLabel = submitBtn?.textContent?.trim() || "QUIERO ASISTIR AL EVENTO";
+
+  function setStatus(type, message) {
+    if (!statusEl) return;
+    statusEl.hidden = false;
+    statusEl.className = `form-status form-status--${type}`;
+    statusEl.textContent = message;
+  }
+
+  function clearStatus() {
+    if (!statusEl) return;
+    statusEl.hidden = true;
+    statusEl.className = "form-status";
+    statusEl.textContent = "";
+  }
+
+  function setLoading(isLoading) {
+    form.classList.toggle("is-loading", isLoading);
+    if (!submitBtn) return;
+    submitBtn.disabled = isLoading;
+    submitBtn.textContent = isLoading ? "Enviando…" : defaultBtnLabel;
+  }
+
+  form.addEventListener("input", () => {
+    if (statusEl && !statusEl.hidden && statusEl.classList.contains("form-status--error")) {
+      clearStatus();
+    }
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    clearStatus();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const endpoint = form.dataset.endpoint?.trim();
+    const formData = new FormData(form);
+
+    setLoading(true);
+
+    try {
+      if (endpoint) {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+      } else {
+        await new Promise((resolve) => window.setTimeout(resolve, 650));
+        console.info(
+          "[reserva-form] Configura data-endpoint para envío real. Datos:",
+          Object.fromEntries(formData.entries())
+        );
+      }
+
+      form.reset();
+      setStatus(
+        "success",
+        "¡Listo! Recibimos tu registro. Te contactaremos pronto con los accesos al evento."
+      );
+      statusEl?.focus({ preventScroll: true });
+    } catch (error) {
+      console.error("[reserva-form] Error al enviar:", error);
+      setStatus(
+        "error",
+        "No pudimos enviar tu registro. Revisa tu conexión e inténtalo de nuevo."
+      );
+      statusEl?.focus({ preventScroll: true });
+    } finally {
+      setLoading(false);
+    }
+  });
+})();

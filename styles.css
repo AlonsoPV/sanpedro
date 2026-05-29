@@ -1201,6 +1201,7 @@ select:focus {
 
 .evento {
   padding-top: clamp(32px, 4vw, 56px);
+  scroll-margin-top: 72px;
 }
 
 .evento .scene-copy {
@@ -8710,5 +8711,374 @@ body.has-banner-docked .lp {
   .dev-stat p {
     font-size: 11.5px;
     letter-spacing: 0.08em;
+  }
+}
+
+/* ============================================================
+   v54 — TICKER · altura natural en tablet (sin estirar ni encimar)
+   ============================================================ */
+
+.ticker {
+  position: relative !important;
+  z-index: 2 !important;
+  margin:
+    clamp(8px, 1.5vw, 16px)
+    auto
+    clamp(56px, 7vw, 88px) !important;
+  overflow: visible !important;
+}
+
+.ticker-grid {
+  align-items: start !important;
+}
+
+.ticker-card {
+  grid-template-rows: auto auto !important;
+  align-content: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.ticker-desc,
+.ticker-title {
+  align-self: start !important;
+}
+
+@media (min-width: 621px) and (max-width: 1180px) {
+  .ticker-card {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: clamp(18px, 2vw, 22px) !important;
+  }
+
+  .ticker-kicker {
+    font-size: clamp(15px, 1.6vw, 18px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .ticker-desc {
+    font-size: clamp(12.5px, 1.1vw, 14px) !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .ticker-card {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+}
+
+/* ============================================================
+   v55 — Hero h1 · tipografía responsiva título + fecha
+   ============================================================ */
+
+.hero h1 {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: clamp(10px, 1.6vw, 18px) !important;
+  margin: 0 !important;
+}
+
+.hero h1 br {
+  display: none !important;
+}
+
+.hero h1 .hero-title {
+  display: block;
+  max-width: 14em;
+  font-size: clamp(36px, 5.2vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.hero h1 .hero-date {
+  display: block;
+  max-width: 18em;
+  font-size: clamp(20px, 2.8vw, 44px);
+  line-height: 1.14;
+  letter-spacing: -0.012em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--gold-2, #e8c97a);
+  text-wrap: balance;
+}
+
+@media (max-width: 920px) {
+  .hero h1 {
+    gap: 10px !important;
+  }
+
+  .hero h1 .hero-title {
+    max-width: 12em;
+    font-size: clamp(30px, 7.2vw, 48px);
+    line-height: 1.04;
+  }
+
+  .hero h1 .hero-date {
+    max-width: 100%;
+    font-size: clamp(18px, 4.6vw, 30px);
+    line-height: 1.18;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero h1 {
+    gap: 8px !important;
+  }
+
+  .hero h1 .hero-title {
+    max-width: 100%;
+    font-size: clamp(26px, 8.8vw, 36px);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+  }
+
+  .hero h1 .hero-date {
+    font-size: clamp(16px, 4.8vw, 22px);
+    line-height: 1.22;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1 .hero-title {
+    font-size: clamp(24px, 8.2vw, 30px);
+  }
+
+  .hero h1 .hero-date {
+    font-size: 15px;
+  }
+}
+
+/* ============================================================
+   v56 — Body copy · tipografía más grande y legible
+   ============================================================ */
+
+.ticker-card {
+  padding: clamp(22px, 2.2vw, 28px) clamp(20px, 2vw, 26px) !important;
+  gap: 12px !important;
+  min-height: 0 !important;
+}
+
+.ticker-kicker {
+  font-size: clamp(18px, 1.5vw, 22px) !important;
+  line-height: 1.25 !important;
+}
+
+.ticker-desc,
+.ticker-title {
+  align-self: start !important;
+  color: var(--ink, #1f2a28) !important;
+  font-size: clamp(15px, 1.15vw, 17.5px) !important;
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
+}
+
+.evento .scene-copy.light p,
+.evento .scene-copy p {
+  font-size: clamp(16.5px, 1.25vw, 19px) !important;
+  line-height: 1.75 !important;
+  color: rgba(250, 250, 247, 0.84) !important;
+}
+
+.evento .scene-copy.light p + p,
+.evento .scene-copy p + p {
+  margin-top: 1.1em !important;
+}
+
+.evento .scene-copy.light small,
+.evento .scene-copy small {
+  display: block;
+  margin-top: 1.4em !important;
+  font-size: clamp(13.5px, 1vw, 15px) !important;
+  line-height: 1.65 !important;
+}
+
+.q-list,
+.q-col ul {
+  gap: 12px !important;
+}
+
+.q-list li,
+.q-col li {
+  padding: 14px 16px 14px 44px !important;
+  font-size: clamp(15px, 1.15vw, 17px) !important;
+  line-height: 1.65 !important;
+  color: var(--ink, #1f2a28) !important;
+}
+
+.q-col--fit .q-list li::before,
+.q-col--fit li::before {
+  top: 15px !important;
+  font-size: 13px !important;
+}
+
+.q-col--unfit .q-list li::before,
+.q-col--unfit li::before {
+  top: 13px !important;
+}
+
+.steps .step-body p {
+  font-size: clamp(16px, 1.2vw, 18.5px) !important;
+  line-height: 1.72 !important;
+  color: var(--ink, #1f2a28) !important;
+  max-width: 600px !important;
+}
+
+.specialties .scene-copy.light p {
+  font-size: clamp(16px, 1.2vw, 18.5px) !important;
+  line-height: 1.72 !important;
+  color: rgba(250, 250, 247, 0.84) !important;
+}
+
+.specialties .spec p {
+  font-size: clamp(14.5px, 1.05vw, 16.5px) !important;
+  line-height: 1.62 !important;
+  color: rgba(250, 250, 247, 0.78) !important;
+}
+
+.specialties .spec h3 {
+  font-size: clamp(18px, 1.55vw, 22px) !important;
+}
+
+.location .scene-copy p {
+  font-size: clamp(16px, 1.2vw, 18.5px) !important;
+  line-height: 1.72 !important;
+  color: var(--ink, #1f2a28) !important;
+  max-width: 520px !important;
+}
+
+.form-s .form-copy.light p {
+  font-size: clamp(16px, 1.2vw, 18.5px) !important;
+  line-height: 1.72 !important;
+  color: rgba(250, 250, 247, 0.86) !important;
+}
+
+.private-note {
+  margin-top: 24px !important;
+  padding: 22px 24px !important;
+  font-size: clamp(15px, 1.1vw, 17px) !important;
+  line-height: 1.72 !important;
+  color: rgba(250, 250, 247, 0.88) !important;
+  background: rgba(250, 250, 247, 0.07) !important;
+  border-color: rgba(250, 250, 247, 0.14) !important;
+}
+
+@media (max-width: 920px) {
+  .ticker-desc,
+  .ticker-title {
+    font-size: clamp(14.5px, 3.6vw, 16.5px) !important;
+  }
+
+  .q-list li,
+  .q-col li {
+    font-size: clamp(14.5px, 3.8vw, 16px) !important;
+    padding: 13px 14px 13px 42px !important;
+  }
+
+  .steps .step-body p,
+  .evento .scene-copy p,
+  .evento .scene-copy.light p,
+  .specialties .scene-copy.light p,
+  .location .scene-copy p,
+  .form-s .form-copy.light p {
+    font-size: clamp(15.5px, 4vw, 17px) !important;
+  }
+
+  .specialties .spec p {
+    font-size: clamp(14px, 3.5vw, 15.5px) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .ticker-kicker {
+    font-size: clamp(17px, 4.5vw, 19px) !important;
+  }
+
+  .ticker-desc,
+  .ticker-title {
+    font-size: 15px !important;
+    line-height: 1.62 !important;
+  }
+
+  .private-note {
+    padding: 18px 20px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* ============================================================
+   v57 — Formulario reserva · validación y feedback
+   ============================================================ */
+
+#reserva {
+  scroll-margin-top: 72px;
+}
+
+.form-card input:user-invalid,
+.form-card select:user-invalid {
+  border-color: rgba(180, 60, 50, 0.55) !important;
+  background: rgba(255, 245, 243, 0.6) !important;
+}
+
+.form-card input:user-invalid:focus,
+.form-card select:user-invalid:focus {
+  border-color: rgba(180, 60, 50, 0.75) !important;
+  box-shadow: 0 0 0 2px rgba(180, 60, 50, 0.12) !important;
+}
+
+.form-card.is-loading {
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+.form-card.is-loading .form-submit {
+  cursor: wait !important;
+  opacity: 0.88 !important;
+}
+
+.form-submit:disabled {
+  cursor: wait !important;
+  transform: none !important;
+}
+
+.form-footnote {
+  margin: 0 !important;
+}
+
+.form-status {
+  margin-top: 16px !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.55 !important;
+  border-radius: 0 !important;
+  outline: none;
+}
+
+.form-status--success {
+  color: #0a3d2e !important;
+  background: rgba(90, 218, 144, 0.22) !important;
+  border: 1px solid rgba(90, 218, 144, 0.45) !important;
+}
+
+.form-status--error {
+  color: #5c2020 !important;
+  background: rgba(220, 90, 80, 0.12) !important;
+  border: 1px solid rgba(180, 60, 50, 0.35) !important;
+}
+
+.form-status:focus-visible {
+  outline: 2px solid var(--cta-mint, #5ada90);
+  outline-offset: 2px;
+}
+
+@media (max-width: 620px) {
+  .form-status {
+    font-size: 13.5px !important;
+    padding: 12px 14px !important;
   }
 }

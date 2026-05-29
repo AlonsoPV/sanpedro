@@ -312,7 +312,7 @@
             <p>Llena el formulario y te contactaremos para enviarte los accesos al evento.</p>
             <div class="private-note">Este es tu momento si buscas tener una inversión segura y una máquina de rentas a un precio muy bajo esto es para ti.</div>
           </div>
-          <form class="form-card reveal" id="reserva-form" data-endpoint="" novalidate>
+          <form class="form-card reveal" id="reserva-form" data-endpoint="/api/register" novalidate>
             <div class="form-top">
               <span>Invitación privada</span>
               <strong>ZAIH HEALTH · Patriotismo 334</strong>
@@ -325,7 +325,7 @@
             <label>Teléfono / WhatsApp<input name="telefono" type="tel" placeholder="+52 55 0000 0000" required autocomplete="tel" inputmode="tel" /></label>
             <div class="fdiv">Perfil de inversión</div>
             <label>Me interesa comprar
-              <select name="interes">
+              <select name="perfil">
                 <option value="" disabled selected hidden>Selecciona una opción</option>
                 <option value="1 consultorio">1 consultorio</option>
                 <option value="Mas de uno">Más de uno</option>
@@ -345,6 +345,22 @@
             <p class="form-footnote">Los lugares se confirman en orden de llegada. Te contactamos en menos de 24 horas.</p>
             <div class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
           </form>
+
+          <div class="gracias-card" id="gracias-card" hidden>
+            <div class="gracias-check" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="#4a7c59"/>
+                <path d="M11 20.5l6.5 6.5L29 14" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p class="gracias-label">Registro confirmado</p>
+            <h3 class="gracias-title">¡Tu lugar está <em>apartado!</em></h3>
+            <p class="gracias-body">Revisaremos tu perfil y te confirmaremos en menos de 24 horas. Revisa tu correo — ahí te enviamos los detalles del evento.</p>
+            <div class="gracias-event">
+              <span class="gracias-dot" aria-hidden="true"></span>
+              <span>Jueves 11 jun · 7:30 pm · Av. Patriotismo 334, CDMX</span>
+            </div>
+          </div>
         </section>
       </main>
 

@@ -9084,6 +9084,7 @@ body.has-banner-docked .lp {
 }
 
 /* ── Gracias card ─────────────────────────────────────────── */
+.gracias-card[hidden] { display: none; }
 .gracias-card {
   background: #fff;
   border-radius: 16px;

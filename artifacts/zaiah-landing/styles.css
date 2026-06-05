@@ -267,6 +267,7 @@ main.flow::before {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
   padding: clamp(118px, 14vh, 150px) clamp(22px, 7vw, 96px) clamp(86px, 12vh, 132px);
   color: var(--cream);
   background: transparent;
@@ -292,8 +293,7 @@ main.flow::before {
 
 .hero-media::after {
   background:
-    linear-gradient(180deg, rgba(13, 43, 36, 0.08) 0%, rgba(13, 43, 36, 0.18) 48%, rgba(13, 43, 36, 0.48) 100%),
-    linear-gradient(90deg, rgba(13, 43, 36, 0.66) 0%, rgba(13, 43, 36, 0.24) 42%, rgba(13, 43, 36, 0.02) 70%, transparent 100%);
+    linear-gradient(180deg, rgba(13, 43, 36, 0.08) 0%, rgba(13, 43, 36, 0.22) 52%, rgba(13, 43, 36, 0.62) 100%);
 }
 
 .scene-visual::after {
@@ -317,6 +317,10 @@ main.flow::before {
   grid-column: 1 / -1;
   max-width: 720px;
   margin-top: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .eyebrow,
@@ -386,6 +390,7 @@ em {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+  justify-content: center;
 }
 
 .hero-note {

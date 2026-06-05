@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "sync:github": "node -e \"const fs=require('fs');const p='artifacts/zaiah-landing/';['index.html','styles.css','script.js'].forEach(f=>fs.copyFileSync(p+f,f))\""
   },
   "dependencies": {
     "vite": "latest"

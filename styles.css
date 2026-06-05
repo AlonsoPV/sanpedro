@@ -8098,6 +8098,7 @@ body.has-banner-docked .lp {
 
 /* Padding vertical mitad — desde evento (anula padding-block en capas viejas) */
 .evento,
+.beneficios,
 .qualify,
 .how,
 .specialties,
@@ -9083,8 +9084,912 @@ body.has-banner-docked .lp {
   }
 }
 
+/* ── Gracias card ─────────────────────────────────────────── */
+.gracias-card[hidden] { display: none; }
+.gracias-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px 40px 44px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: gracias-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes gracias-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.gracias-check {
+  margin-bottom: 4px;
+}
+
+.gracias-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4a7c59;
+  margin: 0;
+}
+
+.gracias-title {
+  font-family: var(--serif, Georgia, serif);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 4px 0 0;
+  line-height: 1.2;
+}
+
+.gracias-title em {
+  font-style: italic;
+  color: #4a7c59;
+}
+
+.gracias-body {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 4px 0 0;
+  max-width: 360px;
+}
+
+.gracias-event {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  background: #f5f5f0;
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.01em;
+}
+
+.gracias-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4a7c59;
+  flex-shrink: 0;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (max-width: 600px) {
+  .gracias-card { padding: 36px 24px 32px; }
+  .gracias-event { font-size: 0.75rem; padding: 9px 14px; }
+}
+
 /* ============================================================
-   v58 — FAQ perfil inversionista + informativas
+   v58 — ban-intro · solo EVENTO PRESENCIAL (naranja + movimiento)
+   ============================================================ */
+
+.ban-intro-inner,
+.ban-intro--docked .ban-intro-inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  grid-template-columns: unset !important;
+  grid-template-rows: unset !important;
+  grid-template-areas: unset !important;
+  column-gap: 0 !important;
+  row-gap: 0 !important;
+  min-height: 52px !important;
+  text-align: center !important;
+}
+
+.ban-intro-kicker,
+.ban-intro--docked .ban-intro-kicker {
+  grid-area: unset !important;
+  align-self: center !important;
+  justify-self: center !important;
+  margin: 0 auto !important;
+  padding: 11px 26px !important;
+  border: 1px solid rgba(255, 122, 46, 0.55) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 122, 46, 0.22) 0%,
+    rgba(255, 90, 20, 0.12) 100%
+  ) !important;
+  color: #ff8a3d !important;
+  font-size: clamp(14px, 2.1vw, 22px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 0 28px rgba(255, 122, 46, 0.45);
+  box-shadow:
+    0 0 24px rgba(255, 122, 46, 0.2),
+    inset 0 1px 0 rgba(255, 200, 150, 0.2);
+  animation: banKickerFloat 2.6s ease-in-out infinite;
+}
+
+.ban-intro-kicker i,
+.ban-intro--docked .ban-intro-kicker i {
+  width: 9px !important;
+  height: 9px !important;
+  background: #ff6a1a !important;
+  box-shadow: 0 0 14px rgba(255, 106, 26, 0.85) !important;
+  animation: banKickerDotPulse 1.5s ease-in-out infinite !important;
+}
+
+@keyframes banKickerFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 0 24px rgba(255, 122, 46, 0.2),
+      inset 0 1px 0 rgba(255, 200, 150, 0.2);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow:
+      0 0 36px rgba(255, 122, 46, 0.38),
+      inset 0 1px 0 rgba(255, 200, 150, 0.28);
+  }
+}
+
+@keyframes banKickerDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 106, 26, 0.65), 0 0 14px rgba(255, 106, 26, 0.85);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 10px rgba(255, 106, 26, 0), 0 0 18px rgba(255, 106, 26, 0.95);
+  }
+}
+
+@media (max-width: 620px) {
+  .ban-intro-kicker,
+  .ban-intro--docked .ban-intro-kicker {
+    font-size: clamp(12px, 3.8vw, 16px) !important;
+    padding: 9px 18px !important;
+    letter-spacing: 0.16em !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ban-intro-kicker,
+  .ban-intro--docked .ban-intro-kicker,
+  .ban-intro-kicker i,
+  .ban-intro--docked .ban-intro-kicker i {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   v59 — Hero title · texto largo editorial
+   ============================================================ */
+
+.hero h1 .hero-title {
+  max-width: 18em !important;
+  font-size: clamp(28px, 4.2vw, 58px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em !important;
+}
+
+@media (max-width: 920px) {
+  .hero h1 .hero-title {
+    max-width: 100% !important;
+    font-size: clamp(24px, 5.8vw, 40px) !important;
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero h1 .hero-title {
+    font-size: clamp(22px, 6.8vw, 32px) !important;
+    line-height: 1.12 !important;
+  }
+}
+
+/* ============================================================
+   v61 — Banner flotante · rediseño moderno
+   ============================================================ */
+
+.banner {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: min(880px, calc(100vw - 24px)) !important;
+  overflow: visible !important;
+}
+
+.banner-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 22px);
+  width: 100%;
+  padding: 10px 10px 10px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(135deg, rgba(4, 43, 39, 0.94) 0%, rgba(6, 63, 58, 0.9) 55%, rgba(4, 35, 32, 0.96) 100%);
+  box-shadow:
+    0 0 0 1px rgba(90, 218, 144, 0.08),
+    0 16px 40px rgba(4, 20, 18, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  overflow: hidden;
+}
+
+.banner-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 138, 61, 0.55) 30%,
+    rgba(90, 218, 144, 0.45) 70%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.banner-lead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  padding: 4px 0;
+}
+
+.banner-pulse {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff6a1a;
+  box-shadow: 0 0 16px rgba(255, 106, 26, 0.85);
+  animation: bannerPulseDot 1.8s ease-in-out infinite;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.banner-label {
+  display: block;
+  color: #ff9a5c;
+  font-family: var(--sans, system-ui);
+  font-size: clamp(11px, 1.4vw, 13px);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.banner-meta {
+  display: block;
+  color: rgba(244, 238, 226, 0.62);
+  font-family: var(--sans, system-ui);
+  font-size: clamp(11px, 1.2vw, 12.5px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.banner-divider {
+  flex-shrink: 0;
+  width: 1px;
+  align-self: stretch;
+  margin: 6px 0;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 255, 255, 0.14) 30%,
+    rgba(255, 255, 255, 0.14) 70%,
+    transparent
+  );
+}
+
+.banner-cta {
+  flex-shrink: 0;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-height: 48px !important;
+  padding: 0 clamp(16px, 2.5vw, 24px) !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(4, 43, 39, 0.15) !important;
+  background: var(--cta-mint, #5ada90) !important;
+  color: var(--cta-mint-text, #042b27) !important;
+  font-size: clamp(10px, 1.2vw, 11.5px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 8px 22px rgba(90, 218, 144, 0.35) !important;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease !important;
+}
+
+.banner-cta-text {
+  line-height: 1;
+}
+
+.banner-cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(4, 43, 39, 0.12);
+  font-size: 13px;
+  line-height: 1;
+  transition: transform 220ms ease, background 220ms ease;
+}
+
+.banner-cta:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.04) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 12px 28px rgba(90, 218, 144, 0.45) !important;
+}
+
+.banner-cta:hover .banner-cta-arrow {
+  transform: translateX(2px);
+  background: rgba(4, 43, 39, 0.18);
+}
+
+.banner-cta:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+@keyframes bannerPulseDot {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 106, 26, 0.55), 0 0 16px rgba(255, 106, 26, 0.85);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(255, 106, 26, 0), 0 0 20px rgba(255, 106, 26, 0.95);
+  }
+}
+
+:root {
+  --banner-height: 72px;
+}
+
+@media (max-width: 720px) {
+  .banner {
+    width: calc(100vw - 20px) !important;
+  }
+
+  .banner-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 14px 14px 12px;
+    border-radius: 18px;
+  }
+
+  .banner-lead {
+    padding: 0;
+  }
+
+  .banner-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12) 30%,
+      rgba(255, 255, 255, 0.12) 70%,
+      transparent
+    );
+  }
+
+  .banner-cta {
+    width: 100% !important;
+    min-height: 46px !important;
+  }
+
+  .banner-meta {
+    white-space: normal;
+  }
+
+  :root {
+    --banner-height: 148px;
+  }
+}
+
+@media (max-width: 420px) {
+  .banner-cta-text {
+    font-size: 10px !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .banner-label {
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-pulse {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   v62 — Banner fix · anular estilos legacy rotos
+   ============================================================ */
+
+aside.banner {
+  display: block !important;
+  grid-template-columns: unset !important;
+  grid-template-rows: unset !important;
+  align-items: unset !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: min(880px, calc(100vw - 24px)) !important;
+  overflow: visible !important;
+  flex-wrap: nowrap !important;
+}
+
+aside.banner.reveal {
+  transform: translateX(-50%) translateY(18px) !important;
+}
+
+aside.banner.reveal.is-visible {
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+aside.banner.banner--hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(20px) !important;
+  visibility: hidden !important;
+}
+
+aside.banner .banner-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(14px, 2.5vw, 22px) !important;
+  width: 100% !important;
+}
+
+aside.banner .banner-label {
+  color: #ff9a5c !important;
+  font-weight: 800 !important;
+}
+
+aside.banner .banner-meta {
+  color: rgba(244, 238, 226, 0.62) !important;
+}
+
+aside.banner .banner-cta {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-height: 48px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+}
+
+aside.banner .banner-cta-arrow {
+  display: inline-flex !important;
+  transform: none;
+}
+
+@media (max-width: 720px) {
+  aside.banner {
+    width: calc(100vw - 20px) !important;
+    padding: 0 !important;
+  }
+
+  aside.banner .banner-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 14px 14px 12px !important;
+  }
+
+  aside.banner .banner-cta {
+    width: 100% !important;
+    flex: none !important;
+  }
+}
+
+@media (max-width: 620px) {
+  aside.banner {
+    width: calc(100vw - 16px) !important;
+    bottom: clamp(10px, 2vh, 16px) !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  aside.banner {
+    width: calc(100vw - 12px) !important;
+    padding: 0 !important;
+  }
+}
+
+/* ============================================================
+   v63 — Beneficios · diseño green-flow como evento
+   ============================================================ */
+
+.beneficios.scene,
+#beneficios.scene {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: auto !important;
+  align-items: center !important;
+  justify-items: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  color: #fff !important;
+  background:
+    radial-gradient(ellipse 60% 50% at 86% 18%, rgba(214, 177, 90, 0.16), transparent 56%),
+    radial-gradient(ellipse 70% 60% at 14% 92%, rgba(11, 90, 82, 0.7), transparent 60%),
+    linear-gradient(168deg, #052f2b 0%, var(--green-2, #063f3a) 48%, #042520 100%) !important;
+  padding-top: clamp(40px, 4.5vw, 66px) !important;
+  padding-bottom: clamp(40px, 4.5vw, 66px) !important;
+  padding-inline: clamp(22px, 5vw, 56px) !important;
+}
+
+.beneficios.scene::before,
+#beneficios.green-flow::before {
+  display: none !important;
+}
+
+.beneficios .scene-copy,
+.beneficios .scene-copy.light {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #fff !important;
+}
+
+.beneficios .sl {
+  color: var(--gold-2, #e8c97a) !important;
+}
+
+.beneficios h2 {
+  color: #fff !important;
+  margin-bottom: clamp(24px, 3vw, 36px) !important;
+}
+
+.beneficios h2 em {
+  color: var(--gold-2, #e8c97a) !important;
+  font-style: italic;
+}
+
+.beneficios-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 18px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.beneficio-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: clamp(96px, 11vw, 120px);
+  padding: clamp(18px, 2.2vw, 24px) clamp(12px, 1.5vw, 16px);
+  border: 1px solid rgba(214, 177, 90, 0.22);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: center;
+  transition:
+    border-color 280ms ease,
+    background 280ms ease,
+    transform 280ms ease;
+}
+
+.beneficio-stat:hover {
+  border-color: rgba(214, 177, 90, 0.42);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+}
+
+.beneficio-val {
+  display: block;
+  color: var(--gold-2, #e8c97a) !important;
+  font-family: var(--serif, Georgia);
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.beneficio-desc {
+  display: block;
+  color: #fff !important;
+  font-family: var(--sans, system-ui);
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+@media (max-width: 920px) {
+  .beneficios-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .beneficios.scene,
+  #beneficios.scene {
+    padding-top: clamp(36px, 5vw, 55px) !important;
+    padding-bottom: clamp(36px, 5vw, 55px) !important;
+  }
+
+  .beneficio-val {
+    font-size: clamp(20px, 4.5vw, 28px);
+  }
+}
+
+@media (max-width: 520px) {
+  .beneficios-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .beneficio-stat {
+    min-height: 84px;
+    padding: 14px 10px;
+  }
+
+  .beneficio-val {
+    font-size: clamp(18px, 5.5vw, 24px);
+  }
+
+  .beneficio-desc {
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (max-width: 360px) {
+  .beneficios-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   v65 — Hero 2 columnas · render nocturno
+   ============================================================ */
+
+.hero {
+  display: block !important;
+  grid-template-columns: unset !important;
+  align-items: stretch !important;
+  background: #042b27 !important;
+  overflow: hidden !important;
+  padding: clamp(104px, 12vh, 136px) clamp(24px, 5vw, 72px) clamp(128px, 14vh, 168px) !important;
+}
+
+.hero::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 43, 39, 0.62) 0%,
+    rgba(6, 63, 58, 0.28) 50%,
+    rgba(11, 90, 82, 0.18) 100%
+  ) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.hero::after {
+  display: none !important;
+}
+
+.hero-media {
+  display: none !important;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: clamp(24px, 4vw, 52px);
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  min-height: clamp(300px, 40vw, 540px);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(214, 177, 90, 0.24);
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: rgba(6, 63, 58, 0.32);
+  pointer-events: none;
+}
+
+.hero-visual img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: inherit !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transform: none !important;
+  filter: saturate(1.04) contrast(1.03) !important;
+}
+
+.hero-note {
+  position: relative !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 2 !important;
+  max-width: 320px !important;
+  margin: clamp(28px, 4vh, 40px) auto 0 !important;
+}
+
+@media (min-width: 921px) {
+  .hero-note {
+    position: absolute !important;
+    left: clamp(24px, 5vw, 72px) !important;
+    bottom: clamp(128px, 14vh, 168px) !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .hero {
+    background-image: url("./assets/images/render-nocturno.jpeg") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    min-height: 100svh !important;
+    padding: clamp(104px, 12vh, 128px) clamp(20px, 5vw, 32px) clamp(140px, 16vh, 180px) !important;
+  }
+
+  .hero::before {
+    background: linear-gradient(
+      180deg,
+      rgba(4, 43, 39, 0.72) 0%,
+      rgba(6, 63, 58, 0.48) 45%,
+      rgba(4, 43, 39, 0.78) 100%
+    ) !important;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+
+  .hero-copy::before {
+    display: none !important;
+  }
+
+  .hero-copy {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero .eyebrow {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .hero h1 {
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .hero h1 .hero-title {
+    max-width: 100% !important;
+    text-align: center !important;
+    text-shadow: 0 12px 36px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .hero h1 .hero-date {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .hero-actions {
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 28px !important;
+  }
+
+  .hero-actions .btn {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    padding-bottom: clamp(150px, 18vh, 190px) !important;
+  }
+
+  .hero-note {
+    max-width: 100% !important;
+    margin-top: 24px !important;
+  }
+}
+
+/* ============================================================
+   v69 — FAQ perfil inversionista (al final)
    ============================================================ */
 
 .faq.scene {
@@ -9200,6 +10105,22 @@ body.has-banner-docked .lp {
   background: rgba(255, 255, 255, 0.7);
 }
 
+@media (max-width: 620px) {
+  .faq-summary {
+    padding: 16px 16px;
+    gap: 12px;
+  }
+
+  .faq-panel {
+    padding: 0 16px 16px;
+  }
+
+  .faq-question {
+    font-size: clamp(16px, 4.2vw, 19px);
+  }
+}
+
+/* v70 — FAQ informativas (ubicación y especialidades) */
 .q-badge--info {
   color: var(--green-2, #063f3a);
   background: rgba(6, 63, 58, 0.08);
@@ -9234,19 +10155,4 @@ body.has-banner-docked .lp {
 .faq-spec-list li strong {
   color: var(--charcoal, #1f2a28);
   font-weight: 600;
-}
-
-@media (max-width: 620px) {
-  .faq-summary {
-    padding: 16px 16px;
-    gap: 12px;
-  }
-
-  .faq-panel {
-    padding: 0 16px 16px;
-  }
-
-  .faq-question {
-    font-size: clamp(16px, 4.2vw, 19px);
-  }
 }

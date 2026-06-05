@@ -161,6 +161,14 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     }
   });
 
+  function showGracias() {
+    const gracias = document.getElementById("gracias-card");
+    if (!gracias) return;
+    form.hidden = true;
+    gracias.hidden = false;
+    gracias.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     clearStatus();
@@ -172,6 +180,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
     const endpoint = form.dataset.endpoint?.trim();
     const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
     setLoading(true);
 
@@ -179,8 +188,8 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       if (endpoint) {
         const response = await fetch(endpoint, {
           method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" }
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data)
         });
 
         if (!response.ok) {
@@ -188,18 +197,10 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         }
       } else {
         await new Promise((resolve) => window.setTimeout(resolve, 650));
-        console.info(
-          "[reserva-form] Configura data-endpoint para envío real. Datos:",
-          Object.fromEntries(formData.entries())
-        );
+        console.info("[reserva-form] Datos:", data);
       }
 
-      form.reset();
-      setStatus(
-        "success",
-        "¡Listo! Recibimos tu registro. Te contactaremos pronto con los accesos al evento."
-      );
-      statusEl?.focus({ preventScroll: true });
+      showGracias();
     } catch (error) {
       console.error("[reserva-form] Error al enviar:", error);
       setStatus(
@@ -207,7 +208,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         "No pudimos enviar tu registro. Revisa tu conexión e inténtalo de nuevo."
       );
       statusEl?.focus({ preventScroll: true });
-    } finally {
       setLoading(false);
     }
   });

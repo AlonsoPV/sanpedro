@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZAIH HEALTH | Consultorios boutique</title>
+    <title>ZAIAH HEALTH | Consultorios boutique</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" href="./assets/images/hero-banner.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=58" />
+    <link rel="preload" as="image" href="./assets/images/render-nocturno.jpeg" fetchpriority="high" />
+    <link rel="stylesheet" href="./styles.css?v=71" />
   </head>
   <body>
     <nav class="nav is-visible" aria-label="Principal">
-      <a class="nav-logo" href="#top" aria-label="ZAIH HEALTH"><span class="brand-zaiah">ZAIH</span><span>HEALTH</span></a>
+      <a class="nav-logo" href="#top" aria-label="ZAIAH HEALTH"><span class="brand-zaiah">ZAIAH</span><span>HEALTH</span></a>
       <div class="nav-right">
-        <span class="nav-pill"><i></i> Evento privado · 11 jun · 7:30 pm</span>
+        <span class="nav-pill"><i></i> Evento privado · 18 jun · 7:00 pm</span>
       </div>
     </nav>
 
@@ -47,10 +47,10 @@
             <div class="eyebrow">Flipping inmobiliario · Preventa · CDMX</div>
             <h1>
               <span class="hero-title">Por qué las inversiones en consultorios son más rentables que los departamentos.</span>
-              <span class="hero-date">Jueves 11 junio 2026 · 7:00 pm.</span>
+              <span class="hero-date">Jueves 18 junio 2026 · 7:00 pm.</span>
             </h1>
             <div class="hero-actions">
-              <a class="btn primary" href="#reserva">Ver el evento del 11 de junio</a>
+              <a class="btn primary" href="#reserva">Ver el evento del 18 de junio</a>
             </div>
           </div>
           <div class="hero-visual reveal is-visible" aria-hidden="true">
@@ -115,7 +115,7 @@
               <span class="step-num">03</span>
               <div class="step-body">
                 <h3>Administrado por un experto</h3>
-                <p>La administración está resuelta por ZAIH HEALTH , se cede a un tercero para que no inviertas tu tiempo.</p>
+                <p>La administración está resuelta por ZAIAH HEALTH, se cede a un tercero para que no inviertas tu tiempo.</p>
                          
               </div>
             </li>
@@ -126,7 +126,7 @@
           <div class="dev-photo reveal">
             <img
               src="./assets/images/forbes-zaiah-developers.webp"
-              alt="Equipo desarrollador ZAIH HEALTH reconocido por Forbes"
+              alt="Equipo desarrollador ZAIAH HEALTH reconocido por Forbes"
               width="900"
               height="1200"
               decoding="async"
@@ -163,10 +163,10 @@
             <p>Llena el formulario y te contactaremos para enviarte los accesos al evento.</p>
             <div class="private-note">Este es tu momento si buscas tener una inversión segura y una máquina de rentas a un precio muy bajo esto es para ti.</div>
           </div>
-          <form class="form-card reveal" id="reserva-form" data-endpoint="" novalidate>
+          <form class="form-card reveal" id="reserva-form" data-endpoint="/api/register" novalidate>
             <div class="form-top">
               <span>Invitación privada</span>
-              <strong>ZAIH HEALTH · Patriotismo 334</strong>
+              <strong>ZAIAH HEALTH · Patriotismo 334</strong>
             </div>
             <div class="fr">
               <label>Nombre<input name="nombre" type="text" placeholder="Tu nombre" required autocomplete="given-name" /></label>
@@ -176,7 +176,7 @@
             <label>Teléfono / WhatsApp<input name="telefono" type="tel" placeholder="+52 55 0000 0000" required autocomplete="tel" inputmode="tel" /></label>
             <div class="fdiv">Perfil de inversión</div>
             <label>Me interesa comprar
-              <select name="interes">
+              <select name="perfil">
                 <option value="" disabled selected hidden>Selecciona una opción</option>
                 <option value="1 consultorio">1 consultorio</option>
                 <option value="Mas de uno">Más de uno</option>
@@ -196,6 +196,22 @@
             <p class="form-footnote">Los lugares se confirman en orden de llegada. Te contactamos en menos de 24 horas.</p>
             <div class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
           </form>
+
+          <div class="gracias-card" id="gracias-card" hidden>
+            <div class="gracias-check" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="#4a7c59"/>
+                <path d="M11 20.5l6.5 6.5L29 14" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p class="gracias-label">Registro confirmado</p>
+            <h3 class="gracias-title">¡Tu lugar está <em>apartado!</em></h3>
+            <p class="gracias-body">Revisaremos tu perfil y te confirmaremos en menos de 24 horas. Revisa tu correo — ahí te enviamos los detalles del evento.</p>
+            <div class="gracias-event">
+              <span class="gracias-dot" aria-hidden="true"></span>
+              <span>Jueves 18 jun · 7:00 pm · Av. Patriotismo 334, CDMX</span>
+            </div>
+          </div>
         </section>
 
         <section class="faq scene cream-flow" id="perfil" aria-label="Preguntas frecuentes">
@@ -227,7 +243,7 @@
               </summary>
               <div class="faq-panel">
                 <p class="faq-lead">Exclusivamente <em>no invasivas.</em></p>
-                <p>ZAIH HEALTH opera con especialidades de bienestar y salud preventiva. No contempla cirugías, urgencias ni procedimientos invasivos.</p>
+                <p>ZAIAH HEALTH opera con especialidades de bienestar y salud preventiva. No contempla cirugías, urgencias ni procedimientos invasivos.</p>
                 <ul class="q-list faq-spec-list" aria-label="Especialidades del proyecto">
                   <li><strong>Nutrición</strong> — Consultas y seguimiento nutricional</li>
                   <li><strong>Salud mental</strong> — Salud mental y terapia</li>
@@ -274,13 +290,13 @@
 
       <footer class="foot">
         <div class="foot-inner">
-          <a class="foot-brand" href="#top" aria-label="ZAIH HEALTH">
-            <strong><span class="brand-zaiah">ZAIH</span><span>HEALTH</span></strong>
+          <a class="foot-brand" href="#top" aria-label="ZAIAH HEALTH">
+            <strong><span class="brand-zaiah">ZAIAH</span><span>HEALTH</span></strong>
             <span class="foot-dot" aria-hidden="true"></span>
             <span class="foot-addr">Av. Patriotismo 334, CDMX</span>
           </a>
           <p class="foot-meta">Consultorios boutique · Flipping con renta mensual · Entrega 2027</p>
-          <small class="foot-copy">© 2026 ZAIH HEALTH</small>
+          <small class="foot-copy">© 2026 ZAIAH HEALTH</small>
         </div>
       </footer>
     </div>

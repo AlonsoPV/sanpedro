@@ -7893,14 +7893,13 @@ body.has-banner-docked .foot {
 .q-badge--yes {
   color: #fff;
   background: linear-gradient(145deg, var(--green-2, #063f3a), var(--green, #0b5a52));
-  box-shadow: 0 8px 22px rgba(6, 63, 58, 0.22);
+  box-shadow: 0 6px 18px rgba(6, 63, 58, 0.22);
 }
 
 .q-badge--no {
-  color: var(--sage, #4a6b62);
-  background: rgba(74, 107, 98, 0.1);
-  border: 1px solid rgba(74, 107, 98, 0.22);
-  box-shadow: none;
+  color: #fff;
+  background: linear-gradient(145deg, #4a6b62, #5e8a80);
+  box-shadow: 0 6px 18px rgba(74, 107, 98, 0.22);
 }
 
 .q-list,
@@ -10122,10 +10121,10 @@ aside.banner .banner-cta-arrow {
 
 /* v70 — FAQ informativas (ubicación y especialidades) */
 .q-badge--info {
-  color: var(--green-2, #063f3a);
-  background: rgba(6, 63, 58, 0.08);
-  border: 1px solid rgba(6, 63, 58, 0.14);
-  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(145deg, var(--green-2, #063f3a), var(--green, #0b5a52));
+  box-shadow: 0 6px 18px rgba(6, 63, 58, 0.22);
+  font-weight: 700;
 }
 
 .faq-item--info .faq-panel .q-list li {

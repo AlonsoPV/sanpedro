@@ -10166,3 +10166,175 @@ aside.banner .banner-cta-arrow {
   color: var(--charcoal, #1f2a28);
   font-weight: 600;
 }
+
+/* v72 — Perfil inversionista debajo del modelo */
+.qualify--solo .section-head {
+  text-align: center;
+  max-width: 820px;
+  margin-inline: auto;
+  margin-bottom: clamp(28px, 3.5vw, 40px) !important;
+}
+
+.qualify--solo .section-head h2 {
+  margin: 0;
+}
+
+.qualify--solo .q-grid--solo {
+  display: grid;
+  max-width: 820px;
+  grid-template-columns: 1fr;
+}
+
+/* ============================================================
+   v73 — Banner flotante · responsive optimizado
+   ============================================================ */
+
+aside.banner {
+  bottom: max(12px, env(safe-area-inset-bottom, 12px)) !important;
+  width: min(880px, calc(100vw - max(20px, env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px) + 20px))) !important;
+  max-width: calc(100vw - 20px) !important;
+}
+
+aside.banner .banner-card {
+  gap: clamp(10px, 2vw, 18px) !important;
+  padding: clamp(8px, 1.4vw, 10px) clamp(8px, 1.4vw, 10px) clamp(8px, 1.4vw, 10px) clamp(14px, 2vw, 16px) !important;
+}
+
+aside.banner .banner-lead {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+aside.banner .banner-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+aside.banner .banner-cta {
+  flex: 0 1 auto;
+  max-width: 100%;
+  min-height: clamp(42px, 6vw, 48px) !important;
+  padding: 0 clamp(14px, 2.2vw, 22px) !important;
+  font-size: clamp(10px, 1.15vw, 11.5px) !important;
+}
+
+/* Tablet / pantallas medianas — apilar antes de que se apriete */
+@media (max-width: 900px) {
+  aside.banner {
+    width: calc(100vw - 20px) !important;
+    bottom: max(10px, env(safe-area-inset-bottom, 10px)) !important;
+  }
+
+  aside.banner .banner-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 12px 12px 10px !important;
+    border-radius: 16px !important;
+  }
+
+  aside.banner .banner-lead {
+    justify-content: center;
+    padding: 2px 0 0;
+  }
+
+  aside.banner .banner-divider {
+    width: 100% !important;
+    height: 1px !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.14) 28%,
+      rgba(255, 255, 255, 0.14) 72%,
+      transparent
+    ) !important;
+  }
+
+  aside.banner .banner-cta {
+    width: 100% !important;
+    flex: none !important;
+    min-height: 44px !important;
+    border-radius: 12px !important;
+  }
+
+  :root {
+    --banner-height: 128px;
+  }
+}
+
+@media (max-width: 540px) {
+  aside.banner {
+    width: calc(100vw - 16px) !important;
+  }
+
+  aside.banner .banner-card {
+    gap: 8px !important;
+    padding: 10px 10px 8px !important;
+    border-radius: 14px !important;
+  }
+
+  aside.banner .banner-pulse {
+    width: 8px;
+    height: 8px;
+  }
+
+  aside.banner .banner-label {
+    font-size: 10px !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  aside.banner .banner-cta {
+    min-height: 42px !important;
+    font-size: 10.5px !important;
+    letter-spacing: 0.07em !important;
+    gap: 6px !important;
+  }
+
+  aside.banner .banner-cta-arrow {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  :root {
+    --banner-height: 114px;
+  }
+}
+
+@media (max-width: 380px) {
+  aside.banner .banner-cta {
+    min-height: auto !important;
+    padding: 10px 12px !important;
+    white-space: normal !important;
+  }
+
+  aside.banner .banner-cta-text {
+    white-space: normal !important;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  :root {
+    --banner-height: 122px;
+  }
+}
+
+/* Desktop estrecho — fila compacta sin romper */
+@media (min-width: 901px) and (max-width: 980px) {
+  aside.banner .banner-card {
+    padding: 8px 8px 8px 14px !important;
+    gap: 12px !important;
+  }
+
+  aside.banner .banner-label {
+    letter-spacing: 0.15em;
+  }
+
+  aside.banner .banner-cta {
+    padding: 0 14px !important;
+    font-size: 10.5px !important;
+  }
+}

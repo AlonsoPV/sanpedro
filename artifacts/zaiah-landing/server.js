@@ -25,9 +25,16 @@ const server = http.createServer((req, res) => {
   res.setHeader("Cache-Control", "no-cache");
 
   let urlPath = req.url.split("?")[0];
+  try {
+    urlPath = decodeURIComponent(urlPath);
+  } catch {
+    res.writeHead(400);
+    res.end("Bad request");
+    return;
+  }
   if (urlPath === "/" || urlPath === "") urlPath = "/index.html";
 
-  const filePath = path.join(ROOT, urlPath);
+  const filePath = path.normalize(path.join(ROOT, urlPath));
 
   if (!filePath.startsWith(ROOT)) {
     res.writeHead(403);

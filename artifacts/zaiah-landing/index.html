@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
     <link rel="preload" as="image" href="./assets/images/render-nocturno.jpeg" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=77" />
+    <link rel="stylesheet" href="./styles.css?v=91" />
   </head>
   <body>
     <nav class="nav is-visible" aria-label="Principal">
@@ -46,12 +46,9 @@
           <div class="hero-copy reveal is-visible">
             <div class="eyebrow">Flipping inmobiliario · Preventa · CDMX</div>
             <h1>
-              <span class="hero-title">Por qué las inversiones en consultorios son más rentables que los departamentos.</span>
+              <span class="hero-title">¿Por qué las inversiones<br />en consultorios son <em>más<br />rentables</em><br />que los<br />departamentos?</span>
               <span class="hero-date">Jueves 18 junio 2026 · 7:00 pm.</span>
             </h1>
-            <div class="hero-actions">
-              <a class="btn primary" href="#reserva">Ver el evento del 18 de junio</a>
-            </div>
           </div>
           <div class="hero-visual reveal is-visible" aria-hidden="true">
             <img
@@ -69,6 +66,16 @@
 
       <main class="flow">
         <section class="beneficios scene green-flow" id="beneficios" aria-label="Beneficios de inversión">
+          <div class="beneficios-render reveal" aria-hidden="true">
+            <img
+              src="./assets/images/render-nocturno.jpeg"
+              alt=""
+              width="1200"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div class="scene-copy light reveal">
             <ul class="beneficios-stats reveal-stagger" aria-label="Métricas de inversión">
               <li class="beneficio-stat reveal">
@@ -94,7 +101,6 @@
         <section class="qualify qualify--solo scene cream-flow" id="perfil" aria-label="Perfil del inversionista">
           <div class="perfil-inner">
             <div class="section-head reveal">
-              <span class="sl dark">Perfil del inversionista</span>
               <h2>Pensado para <em>ti que:</em></h2>
             </div>
             <div class="perfil-card reveal">
@@ -110,7 +116,6 @@
 
         <section class="how scene" id="modelo">
           <div class="scene-copy reveal">
-            <span class="sl dark">El modelo</span>
             <h2><em>Así funciona tu inversión.</em></h2>
           </div>
           <ol class="steps reveal-stagger" aria-label="Cómo funciona la inversión">
@@ -150,7 +155,6 @@
             />
           </div>
           <div class="scene-copy reveal">
-            <span class="sl dark">Trayectoria</span>
             <h2>Los <em>desarrolladores.</em></h2>
             <ul class="dev-stats reveal-stagger" aria-label="Trayectoria del desarrollador">
               <li class="dev-stat reveal">
@@ -163,12 +167,82 @@
           </div>
         </section>
 
+        <section class="testimonials scene cream-flow" id="testimonios" aria-label="Testimonios">
+          <div class="testimonials-inner">
+            <div class="section-head reveal">
+              <h2>Lo que dicen <em>nuestros inversionistas.</em></h2>
+            </div>
+            <div class="testimonials-grid reveal-stagger">
+              <blockquote class="testimonial reveal">
+                <p>“Fue increíble, le dieron un seguimiento a todo el proyecto. Es muy formal y te da mucha confianza”</p>
+                <footer>— Lizbeth Hernandez</footer>
+              </blockquote>
+              <blockquote class="testimonial reveal">
+                <p>“Nos transmitió mucha confianza Alexis, fue una persona muy agradable, muy tolerante, muy comprensiva para poder llegar a la conclusión de esta operación”</p>
+              </blockquote>
+              <blockquote class="testimonial reveal">
+                <p>“El estar recibiendo una renta fija, para mi es cómodo y no tener que lidiar ni con inquilinos, ni con meses donde no está ocupada mi propiedad, para mí fue lo mejor.”</p>
+                <footer>— Alfonso Mercado</footer>
+              </blockquote>
+            </div>
+          </div>
+        </section>
+
+        <section class="project-gallery scene cream-flow" id="galeria" aria-label="Galería del proyecto">
+          <div class="gallery-inner">
+            <div class="section-head reveal">
+              <h2>San Pedro <em>en imágenes.</em></h2>
+            </div>
+            <div class="gallery-grid reveal-stagger">
+              <figure class="gallery-item reveal">
+                <img
+                  src="./assets/images/sanpedro-4.jpeg"
+                  alt="Vista exterior del proyecto ZAIAH HEALTH en San Pedro"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img
+                  src="./assets/images/sanpedro-3.jpeg"
+                  alt="Detalle arquitectónico del desarrollo San Pedro"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img
+                  src="./assets/images/sanpedro-2.jpeg"
+                  alt="Espacios del proyecto ZAIAH HEALTH"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="gallery-item reveal">
+                <img
+                  src="./assets/images/sanpedro-1.jpeg"
+                  alt="Ambiente boutique del proyecto San Pedro"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+
         <section class="form-s scene dark-cinema" id="reserva">
           <div class="form-copy light reveal">
-            <span class="sl">Reserva tu lugar</span>
             <h2>5 unidades. Una sola noche. <em>El precio más bajo del proyecto.</em></h2>
             <p>Llena el formulario y te contactaremos para enviarte los accesos al evento.</p>
-            <div class="private-note">Este es tu momento si buscas tener una inversión segura y una máquina de rentas a un precio muy bajo esto es para ti.</div>
+            <div class="private-note">El único proyecto de inversión en consultorios boutique por menos de 2 MDP.</div>
           </div>
           <form class="form-card reveal" id="reserva-form" data-endpoint="/api/register" novalidate>
             <div class="form-top">
@@ -196,7 +270,6 @@
                 <option value="$1.5M - $3M MXN">$1.5M - $3M MXN</option>
                 <option value="$3M - $5M MXN">$3M - $5M MXN</option>
                 <option value="Mas de $5M MXN">Más de $5M MXN</option>
-                <option value="Por definir">Por definir</option>
               </select>
             </label>
             <button type="submit" class="form-submit">QUIERO ASISTIR AL EVENTO</button>
@@ -222,9 +295,6 @@
         </section>
 
         <section class="faq scene cream-flow" id="faq" aria-label="Preguntas frecuentes">
-          <div class="section-head reveal">
-            <span class="sl dark">Preguntas frecuentes</span>
-          </div>
           <div class="faq-list reveal-stagger">
             <details class="faq-item faq-item--info reveal">
               <summary class="faq-summary">

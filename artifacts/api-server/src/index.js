@@ -28,6 +28,9 @@ app.post("/api/register", async (req, res) => {
 
   const nombreCompleto = [nombre, apellido].filter(Boolean).join(" ");
 
+  // Respond immediately — background tasks run after
+  res.json({ ok: true });
+
   // ── Monday.com ─────────────────────────────────────────────
   if (MONDAY_TOKEN) {
     try {
@@ -106,8 +109,8 @@ app.post("/api/register", async (req, res) => {
     }
   }
 
-  return res.json({ ok: true });
 });
+
 
 /* ─── Monday.com helper ───────────────────────────────────── */
 function mondayRequest(query) {

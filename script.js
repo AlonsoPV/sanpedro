@@ -132,7 +132,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
   const submitBtn = form.querySelector(".form-submit");
   const statusEl = form.querySelector(".form-status");
-  const defaultBtnLabel = submitBtn?.textContent?.trim() || "QUIERO ASISTIR AL EVENTO";
+  const defaultBtnLabel = submitBtn?.textContent?.trim() || "Agendar mi recorrido →";
 
   function setStatus(type, message) {
     if (!statusEl) return;
@@ -211,4 +211,27 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setLoading(false);
     }
   });
+})();
+
+/* WhatsApp CTAs (hero) */
+(function initWhatsAppLinks() {
+  const WA_NUMBER = "5219981234567";
+  const WA_REF = "zaiah-landing-recorrido";
+  const baseMsg =
+    "Hola, vengo de la página de Zaiah Health y quiero agendar mi recorrido privado 1:1.";
+
+  function waLink(msg) {
+    return (
+      "https://wa.me/" +
+      WA_NUMBER +
+      "?text=" +
+      encodeURIComponent(msg + " [ref: " + WA_REF + "]")
+    );
+  }
+
+  const waHero = document.getElementById("waHero");
+  if (waHero) waHero.href = waLink(baseMsg);
+
+  const waClose = document.getElementById("waClose");
+  if (waClose) waClose.href = waLink(baseMsg);
 })();

@@ -215,7 +215,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
 /* WhatsApp CTAs (hero) */
 (function initWhatsAppLinks() {
-  const WA_NUMBER = "5219981234567";
+  const WA_NUMBER = "5215584004709";
   const WA_REF = "zaiah-landing-recorrido";
   const baseMsg =
     "Hola, vengo de la página de Zaiah Health y quiero agendar mi recorrido privado 1:1.";

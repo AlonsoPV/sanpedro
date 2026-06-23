@@ -12876,7 +12876,7 @@ header.hero#top::before {
   font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.015em;
-  color: var(--charcoal, #1f2a28);
+  color: var(--green-2, #063f3a);
 }
 
 #beneficios .value-head h2 em {
@@ -14642,4 +14642,12 @@ main.flow > section.scene {
     font-size: 10px;
     letter-spacing: 0.05em;
   }
+}
+
+/* ============================================================
+   v113 — Beneficios h2 verde (override legacy .beneficios h2)
+   ============================================================ */
+
+#beneficios.beneficios.value-section .value-head h2 {
+  color: var(--green-2, #063f3a) !important;
 }

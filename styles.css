@@ -14802,3 +14802,12 @@ main.flow > section.scene {
 #reserva .reserva-wa-line {
   margin-top: 0;
 }
+
+/* ============================================================
+   v118 — Footer brand en mayúsculas
+   ============================================================ */
+
+footer.site-footer .site-footer-brand {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

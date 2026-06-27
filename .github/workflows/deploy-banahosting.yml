@@ -31,6 +31,18 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Validate FTP secrets
+        env:
+          FTP_SERVER: ${{ secrets.BANAHOSTING_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.BANAHOSTING_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.BANAHOSTING_FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.BANAHOSTING_FTP_SERVER_DIR }}
+        run: |
+          test -n "$FTP_SERVER" || (echo "Missing BANAHOSTING_FTP_SERVER" && exit 1)
+          test -n "$FTP_USERNAME" || (echo "Missing BANAHOSTING_FTP_USERNAME" && exit 1)
+          test -n "$FTP_PASSWORD" || (echo "Missing BANAHOSTING_FTP_PASSWORD" && exit 1)
+          test -n "$FTP_SERVER_DIR" || (echo "Missing BANAHOSTING_FTP_SERVER_DIR" && exit 1)
+
       - name: Upload dist to BanaHosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

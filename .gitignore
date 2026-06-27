@@ -3,3 +3,4 @@ dist/
 .vite/
 *.zip
 npm-debug.log*
+.env

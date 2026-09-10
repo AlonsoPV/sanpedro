@@ -9,18 +9,33 @@ const MONDAY_BOARD_ID = "18413790310";
 const MONDAY_GROUP_ID = "group_mm2pwz12";
 const NOTIFY_EMAILS = ["alpeva96@gmail.com", "mkt@zaiah.com.mx"];
 
+const CAPITAL_VALUES = {
+  "1.5 - 2 MDP": "1500000",
+  "1.5 – 2 MDP": "1500000",
+  "2 - 4 MDP": "2000000",
+  "2 – 4 MDP": "2000000",
+  "4 - 6 MDP": "4000000",
+  "4 – 6 MDP": "4000000",
+  "Mas de 6 MDP": "6000000",
+  "Más de 6 MDP": "6000000",
+};
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* ─── Healthz ─────────────────────────────────────────────── */
 app.get("/api/healthz", (_req, res) => {
   res.json({ status: "ok" });
 });
 
-/* ─── POST /api/register ──────────────────────────────────── */
 app.post("/api/register", async (req, res) => {
-  const { nombre, apellido, email, telefono, perfil, capital } = req.body || {};
+  const body = req.body || {};
+  const nombre = cleanText(body.nombre);
+  const apellido = cleanText(body.apellido);
+  const email = cleanText(body.email);
+  const telefono = cleanText(body.telefono);
+  const perfil = cleanText(body.perfil);
+  const capital = cleanText(body.capital);
 
   if (!nombre || !email) {
     return res.status(400).json({ error: "Nombre y correo son requeridos." });
@@ -28,55 +43,55 @@ app.post("/api/register", async (req, res) => {
 
   const nombreCompleto = [nombre, apellido].filter(Boolean).join(" ");
 
-  // Respond immediately — background tasks run after
   res.json({ ok: true });
 
-  // ── Monday.com ─────────────────────────────────────────────
   if (MONDAY_TOKEN) {
     try {
-      const capitalMap = {
-        "$1.5M - $3M MXN": "1500000",
-        "$3M - $5M MXN": "3000000",
-        "Más de $5M MXN": "5000000",
-      };
-      const capitalNum = capitalMap[capital] || "";
-
+      const capitalNum = CAPITAL_VALUES[capital] || "";
       const cols = {
         email_mm2p9et1: { email, text: email },
         phone_mm2px8fp: { phone: telefono || "", countryShortName: "MX" },
       };
-      if (capitalNum) cols.numeric_mm2q19q1 = capitalNum;
 
-      const columnValues = JSON.stringify(cols);
+      if (capitalNum) {
+        cols.numeric_mm2q19q1 = capitalNum;
+      }
 
-      const createMutation = `mutation {
+      const createMutation = `mutation CreateLead($boardId: ID!, $groupId: String!, $itemName: String!, $columnValues: JSON!) {
         create_item(
-          board_id: ${MONDAY_BOARD_ID},
-          group_id: "${MONDAY_GROUP_ID}",
-          item_name: "${nombreCompleto.replace(/"/g, '\\"')}",
-          column_values: ${JSON.stringify(columnValues)}
+          board_id: $boardId,
+          group_id: $groupId,
+          item_name: $itemName,
+          column_values: $columnValues
         ) { id }
       }`;
 
-      const createResult = await mondayRequest(createMutation);
+      const createResult = await mondayRequest(createMutation, {
+        boardId: MONDAY_BOARD_ID,
+        groupId: MONDAY_GROUP_ID,
+        itemName: nombreCompleto,
+        columnValues: JSON.stringify(cols),
+      });
       const itemId = createResult?.data?.create_item?.id;
 
       if (itemId && (perfil || capital)) {
         const lines = [];
-        if (perfil)  lines.push(`📋 Me interesa comprar: ${perfil}`);
-        if (capital) lines.push(`💰 Capital disponible: ${capital}`);
-        const updateBody = lines.join("\\n");
-        const updateMutation = `mutation {
-          create_update(item_id: ${itemId}, body: "${updateBody}") { id }
+        if (perfil) lines.push(`Me interesa comprar: ${perfil}`);
+        if (capital) lines.push(`Capital disponible: ${capital}`);
+
+        const updateMutation = `mutation CreateLeadUpdate($itemId: ID!, $body: String!) {
+          create_update(item_id: $itemId, body: $body) { id }
         }`;
-        await mondayRequest(updateMutation);
+        await mondayRequest(updateMutation, {
+          itemId,
+          body: lines.join("\n"),
+        });
       }
     } catch (err) {
       console.error("Monday.com error:", err.message);
     }
   }
 
-  // ── Email notification ──────────────────────────────────────
   const GMAIL_USER = process.env.GMAIL_USER;
   const GMAIL_PASS = process.env.GMAIL_PASS;
 
@@ -88,13 +103,13 @@ app.post("/api/register", async (req, res) => {
       });
 
       const html = `
-        <h2>Nueva reserva — Zaiah Health</h2>
+        <h2>Nueva reserva - Zaiah Health</h2>
         <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
-          <tr><td style="padding:6px 12px;font-weight:bold">Nombre</td><td style="padding:6px 12px">${nombreCompleto}</td></tr>
-          <tr><td style="padding:6px 12px;font-weight:bold">Email</td><td style="padding:6px 12px">${email}</td></tr>
-          <tr><td style="padding:6px 12px;font-weight:bold">Teléfono</td><td style="padding:6px 12px">${telefono || "—"}</td></tr>
-          <tr><td style="padding:6px 12px;font-weight:bold">Perfil</td><td style="padding:6px 12px">${perfil || "—"}</td></tr>
-          <tr><td style="padding:6px 12px;font-weight:bold">Capital</td><td style="padding:6px 12px">${capital || "—"}</td></tr>
+          <tr><td style="padding:6px 12px;font-weight:bold">Nombre</td><td style="padding:6px 12px">${escapeHtml(nombreCompleto)}</td></tr>
+          <tr><td style="padding:6px 12px;font-weight:bold">Email</td><td style="padding:6px 12px">${escapeHtml(email)}</td></tr>
+          <tr><td style="padding:6px 12px;font-weight:bold">Telefono</td><td style="padding:6px 12px">${escapeHtml(telefono || "-")}</td></tr>
+          <tr><td style="padding:6px 12px;font-weight:bold">Perfil</td><td style="padding:6px 12px">${escapeHtml(perfil || "-")}</td></tr>
+          <tr><td style="padding:6px 12px;font-weight:bold">Capital</td><td style="padding:6px 12px">${escapeHtml(capital || "-")}</td></tr>
         </table>
       `;
 
@@ -108,14 +123,11 @@ app.post("/api/register", async (req, res) => {
       console.error("Email error:", err.message);
     }
   }
-
 });
 
-
-/* ─── Monday.com helper ───────────────────────────────────── */
-function mondayRequest(query) {
+function mondayRequest(query, variables = {}) {
   return new Promise((resolve, reject) => {
-    const body = JSON.stringify({ query });
+    const body = JSON.stringify({ query, variables });
     const options = {
       hostname: "api.monday.com",
       path: "/v2",
@@ -126,18 +138,41 @@ function mondayRequest(query) {
         "API-Version": "2024-01",
       },
     };
+
     const req = https.request(options, (r) => {
       let data = "";
       r.on("data", (c) => (data += c));
       r.on("end", () => {
-        try { resolve(JSON.parse(data)); }
-        catch (e) { reject(e); }
+        try {
+          const parsed = JSON.parse(data);
+          if (parsed.errors?.length) {
+            reject(new Error(parsed.errors.map((error) => error.message).join("; ")));
+            return;
+          }
+          resolve(parsed);
+        } catch (error) {
+          reject(error);
+        }
       });
     });
+
     req.on("error", reject);
     req.write(body);
     req.end();
   });
+}
+
+function cleanText(value) {
+  return String(value || "").trim();
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 app.listen(PORT, "0.0.0.0", () => {

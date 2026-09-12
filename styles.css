@@ -17369,6 +17369,252 @@ video {
 }
 
 /* ============================================================
+   v142 — Resultados copy · título y distribución
+   ============================================================ */
+
+#resultados .resultados-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  min-width: 0;
+}
+
+#resultados .resultados-head {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#resultados .resultados-eyebrow {
+  margin-bottom: 12px !important;
+}
+
+#resultados .resultados-head h2 {
+  max-width: 22ch !important;
+  margin: 0 !important;
+  font-size: clamp(30px, 3.6vw, 42px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em !important;
+}
+
+#resultados .resultados-grid {
+  width: 100% !important;
+  margin-top: 0 !important;
+}
+
+#resultados .resultados-item {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+@media (max-width: 900px) {
+  #resultados .resultados-copy {
+    gap: 20px;
+  }
+
+  #resultados .resultados-head h2 {
+    max-width: none !important;
+    font-size: clamp(28px, 6.5vw, 36px) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  #resultados .resultados-copy {
+    gap: 16px;
+  }
+
+  #resultados .resultados-head h2 {
+    font-size: clamp(26px, 7vw, 32px) !important;
+    line-height: 1.15 !important;
+  }
+}
+
+/* ============================================================
+   v143 — Resultados · distribución editorial
+   ============================================================ */
+
+#resultados.resultados-section {
+  padding-block: clamp(56px, 6.5vw, 88px) !important;
+}
+
+#resultados .resultados-inner {
+  display: grid;
+  gap: clamp(28px, 4vw, 40px);
+}
+
+#resultados .resultados-head {
+  max-width: 28ch !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+#resultados .resultados-eyebrow {
+  margin-bottom: 12px !important;
+}
+
+#resultados .resultados-head h2 {
+  max-width: none !important;
+  margin: 0 !important;
+  font-size: clamp(30px, 3.8vw, 44px) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+}
+
+#resultados .resultados-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(200px, 0.65fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+}
+
+#resultados .resultados-layout,
+#resultados .resultados-copy {
+  display: contents;
+}
+
+#resultados .resultados-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-self: stretch;
+  min-height: 0 !important;
+  border-top: 1px solid rgba(28, 42, 36, 0.14) !important;
+  border-bottom: 1px solid rgba(28, 42, 36, 0.14) !important;
+}
+
+#resultados .resultados-item,
+#resultados .resultados-item:not(:first-child) {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+  padding: 24px 16px 24px 0 !important;
+  border-right: 1px solid rgba(28, 42, 36, 0.12) !important;
+  border-bottom: 0 !important;
+}
+
+#resultados .resultados-item:not(:first-child) {
+  padding-left: 16px !important;
+}
+
+#resultados .resultados-item:last-child {
+  border-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+#resultados .resultados-kicker {
+  margin: 0 0 12px !important;
+}
+
+#resultados .resultados-num {
+  margin: 0 !important;
+  font-size: clamp(40px, 4.8vw, 56px) !important;
+}
+
+#resultados .resultados-label {
+  margin: 10px 0 0 !important;
+  max-width: 15ch !important;
+}
+
+#resultados .resultados-forbes {
+  margin: 0;
+  justify-self: end;
+  width: 100%;
+  max-width: 280px;
+}
+
+#resultados .resultados-forbes-img {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 12px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+#resultados .resultados-forbes-cap {
+  margin: 12px 0 0;
+  max-width: none;
+  text-align: left;
+  font-size: clamp(16px, 1.8vw, 19px);
+}
+
+@media (max-width: 900px) {
+  #resultados .resultados-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  #resultados .resultados-head {
+    max-width: 24ch !important;
+  }
+
+  #resultados .resultados-forbes {
+    justify-self: start;
+    max-width: 240px;
+  }
+
+  #resultados .resultados-forbes-cap {
+    text-align: left;
+  }
+}
+
+@media (max-width: 620px) {
+  #resultados .resultados-inner {
+    gap: 22px;
+  }
+
+  #resultados .resultados-head {
+    max-width: none !important;
+  }
+
+  #resultados .resultados-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #resultados .resultados-item,
+  #resultados .resultados-item:not(:first-child) {
+    display: grid !important;
+    grid-template-columns: 76px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "num kicker"
+      "num label" !important;
+    column-gap: 12px !important;
+    row-gap: 2px !important;
+    align-items: center !important;
+    padding: 14px 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(28, 42, 36, 0.1) !important;
+  }
+
+  #resultados .resultados-item:last-child {
+    border-bottom: 0 !important;
+  }
+
+  #resultados .resultados-kicker {
+    grid-area: kicker;
+    margin: 0 !important;
+  }
+
+  #resultados .resultados-num {
+    grid-area: num;
+    font-size: 34px !important;
+  }
+
+  #resultados .resultados-label {
+    grid-area: label;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 200px;
+  }
+}
+
+/* ============================================================
    v141 — Reserva form · ancho y diseño moderno
    ============================================================ */
 

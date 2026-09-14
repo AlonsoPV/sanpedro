@@ -17777,3 +17777,704 @@ video {
     padding: 13px 16px !important;
   }
 }
+
+/* ============================================================
+   v144 — Resultados · más compacto, menos vacío
+   ============================================================ */
+
+#resultados.resultados-section {
+  padding-block: clamp(36px, 4.5vw, 56px) !important;
+}
+
+#resultados .resultados-inner {
+  gap: 18px !important;
+}
+
+#resultados .resultados-eyebrow {
+  margin-bottom: 8px !important;
+}
+
+#resultados .resultados-head h2 {
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  line-height: 1.12 !important;
+}
+
+#resultados .resultados-body {
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+#resultados .resultados-grid {
+  align-self: start !important;
+}
+
+#resultados .resultados-item,
+#resultados .resultados-item:not(:first-child) {
+  padding: 14px 12px 14px 0 !important;
+}
+
+#resultados .resultados-item:not(:first-child) {
+  padding-left: 12px !important;
+}
+
+#resultados .resultados-kicker {
+  margin: 0 0 6px !important;
+  font-size: 10px !important;
+}
+
+#resultados .resultados-num {
+  font-size: clamp(32px, 3.8vw, 44px) !important;
+}
+
+#resultados .resultados-label {
+  margin: 6px 0 0 !important;
+  font-size: 12.5px !important;
+}
+
+#resultados .resultados-forbes {
+  max-width: 200px !important;
+}
+
+#resultados .resultados-forbes-img {
+  aspect-ratio: 3 / 4 !important;
+  border-radius: 10px !important;
+}
+
+#resultados .resultados-forbes-cap {
+  margin-top: 10px !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 900px) {
+  #resultados.resultados-section {
+    padding-block: 32px !important;
+  }
+
+  #resultados .resultados-inner {
+    gap: 16px !important;
+  }
+
+  #resultados .resultados-body {
+    gap: 20px !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 180px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  #resultados.resultados-section {
+    padding-block: 28px !important;
+  }
+
+  #resultados .resultados-item,
+  #resultados .resultados-item:not(:first-child) {
+    padding: 10px 0 !important;
+  }
+
+  #resultados .resultados-num {
+    font-size: 28px !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 160px !important;
+  }
+}
+
+/* ============================================================
+   v145 — Resultados · info | foto en la misma fila
+   ============================================================ */
+
+#resultados .resultados-inner {
+  display: block !important;
+  gap: 0 !important;
+}
+
+#resultados .resultados-body {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.25fr) minmax(180px, 0.55fr) !important;
+  gap: clamp(20px, 3vw, 36px) !important;
+  align-items: center !important;
+}
+
+#resultados .resultados-layout {
+  display: contents !important;
+}
+
+#resultados .resultados-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  min-width: 0 !important;
+}
+
+#resultados .resultados-head {
+  max-width: 26ch !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#resultados .resultados-forbes {
+  margin: 0 !important;
+  justify-self: end !important;
+  width: 100% !important;
+  max-width: 220px !important;
+}
+
+#resultados .resultados-forbes-img {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: cover !important;
+}
+
+#resultados .resultados-forbes-cap {
+  margin: 10px 0 0 !important;
+  text-align: left !important;
+}
+
+@media (max-width: 900px) {
+  #resultados .resultados-body {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    align-items: start !important;
+  }
+
+  #resultados .resultados-forbes {
+    justify-self: start !important;
+    max-width: 200px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  #resultados .resultados-copy {
+    gap: 12px !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 160px !important;
+  }
+}
+
+
+/* ============================================================
+   v146 — Resultados · Forbes completa (sin crop)
+   ============================================================ */
+
+#resultados .resultados-forbes-img {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+}
+
+
+
+/* ============================================================
+   v147 — Resultados · distribución equilibrada info | Forbes
+   ============================================================ */
+
+#resultados.resultados-section {
+  padding-block: clamp(40px, 5vw, 64px) !important;
+}
+
+#resultados .resultados-inner {
+  display: block !important;
+}
+
+#resultados .resultados-body {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 260px) !important;
+  gap: clamp(28px, 4vw, 48px) !important;
+  align-items: center !important;
+}
+
+#resultados .resultados-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 22px !important;
+  min-width: 0 !important;
+}
+
+#resultados .resultados-head {
+  max-width: 18ch !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#resultados .resultados-eyebrow {
+  margin: 0 0 10px !important;
+}
+
+#resultados .resultados-head h2 {
+  margin: 0 !important;
+  font-size: clamp(28px, 3.4vw, 40px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em !important;
+}
+
+#resultados .resultados-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+  border-top: 1px solid rgba(28, 42, 36, 0.14) !important;
+  border-bottom: 1px solid rgba(28, 42, 36, 0.14) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#resultados .resultados-item,
+#resultados .resultados-item:not(:first-child),
+#resultados .resultados-item:nth-child(2n) {
+  display: grid !important;
+  grid-template-columns: 5.5rem minmax(0, 1fr) !important;
+  grid-template-areas:
+    "num kicker"
+    "num label" !important;
+  column-gap: 14px !important;
+  row-gap: 2px !important;
+  align-items: center !important;
+  justify-content: start !important;
+  min-height: 0 !important;
+  padding: 14px 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid rgba(28, 42, 36, 0.1) !important;
+}
+
+#resultados .resultados-item:last-child {
+  border-bottom: 0 !important;
+  border-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+#resultados .resultados-kicker {
+  grid-area: kicker !important;
+  margin: 0 !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.16em !important;
+}
+
+#resultados .resultados-num {
+  grid-area: num !important;
+  margin: 0 !important;
+  font-size: clamp(34px, 4vw, 44px) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.03em !important;
+}
+
+#resultados .resultados-label {
+  grid-area: label !important;
+  margin: 0 !important;
+  max-width: none !important;
+  font-size: 13.5px !important;
+  line-height: 1.35 !important;
+}
+
+#resultados .resultados-forbes {
+  margin: 0 !important;
+  justify-self: stretch !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+#resultados .resultados-forbes-img {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  margin: 0 !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  border-radius: 8px !important;
+}
+
+#resultados .resultados-forbes-cap {
+  margin: 12px 0 0 !important;
+  max-width: 16ch !important;
+  text-align: left !important;
+  font-size: clamp(15px, 1.6vw, 18px) !important;
+  line-height: 1.3 !important;
+}
+
+@media (max-width: 900px) {
+  #resultados .resultados-body {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    align-items: start !important;
+  }
+
+  #resultados .resultados-head {
+    max-width: 22ch !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 220px !important;
+    justify-self: start !important;
+  }
+}
+
+@media (max-width: 620px) {
+  #resultados.resultados-section {
+    padding-block: 32px !important;
+  }
+
+  #resultados .resultados-copy {
+    gap: 16px !important;
+  }
+
+  #resultados .resultados-item,
+  #resultados .resultados-item:not(:first-child),
+  #resultados .resultados-item:nth-child(2n) {
+    grid-template-columns: 4.75rem minmax(0, 1fr) !important;
+    padding: 12px 0 !important;
+  }
+
+  #resultados .resultados-num {
+    font-size: 30px !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 180px !important;
+  }
+}
+
+
+/* ============================================================
+   v148 — Resultados · dos columnas en fila (métricas | Forbes)
+   ============================================================ */
+
+#resultados .resultados-body {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.55fr) !important;
+  gap: clamp(24px, 3.5vw, 40px) !important;
+  align-items: center !important;
+}
+
+#resultados .resultados-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+  min-width: 0 !important;
+}
+
+#resultados .resultados-head {
+  max-width: 22ch !important;
+}
+
+#resultados .resultados-head h2 {
+  font-size: clamp(26px, 3.2vw, 36px) !important;
+  line-height: 1.1 !important;
+}
+
+#resultados .resultados-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  border-top: 1px solid rgba(28, 42, 36, 0.14) !important;
+  border-bottom: 1px solid rgba(28, 42, 36, 0.14) !important;
+}
+
+#resultados .resultados-item,
+#resultados .resultados-item:not(:first-child),
+#resultados .resultados-item:nth-child(2n) {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  gap: 0 !important;
+  grid-template-columns: none !important;
+  grid-template-areas: none !important;
+  min-height: 0 !important;
+  padding: 16px 12px 16px 0 !important;
+  border-right: 1px solid rgba(28, 42, 36, 0.12) !important;
+  border-bottom: 0 !important;
+}
+
+#resultados .resultados-item:not(:first-child) {
+  padding-left: 12px !important;
+}
+
+#resultados .resultados-item:last-child {
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  padding-right: 0 !important;
+}
+
+#resultados .resultados-kicker {
+  margin: 0 0 8px !important;
+  font-size: 10px !important;
+}
+
+#resultados .resultados-num {
+  margin: 0 !important;
+  font-size: clamp(32px, 3.8vw, 44px) !important;
+  line-height: 0.95 !important;
+}
+
+#resultados .resultados-label {
+  margin: 8px 0 0 !important;
+  max-width: 14ch !important;
+  font-size: 12.5px !important;
+  line-height: 1.35 !important;
+}
+
+#resultados .resultados-forbes {
+  margin: 0 !important;
+  justify-self: end !important;
+  width: 100% !important;
+  max-width: 240px !important;
+}
+
+#resultados .resultados-forbes-img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  border-radius: 8px !important;
+}
+
+#resultados .resultados-forbes-cap {
+  margin: 10px 0 0 !important;
+  max-width: 16ch !important;
+  text-align: left !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+}
+
+@media (max-width: 900px) {
+  #resultados .resultados-body {
+    grid-template-columns: minmax(0, 1.2fr) minmax(140px, 0.5fr) !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 180px !important;
+  }
+
+  #resultados .resultados-item,
+  #resultados .resultados-item:not(:first-child),
+  #resultados .resultados-item:nth-child(2n) {
+    padding: 12px 8px 12px 0 !important;
+  }
+
+  #resultados .resultados-item:not(:first-child) {
+    padding-left: 8px !important;
+  }
+
+  #resultados .resultados-num {
+    font-size: 28px !important;
+  }
+
+  #resultados .resultados-label {
+    font-size: 11.5px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  #resultados .resultados-body {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  #resultados .resultados-forbes {
+    max-width: 160px !important;
+    justify-self: start !important;
+  }
+
+  #resultados .resultados-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #resultados .resultados-item,
+  #resultados .resultados-item:not(:first-child),
+  #resultados .resultados-item:nth-child(2n) {
+    display: grid !important;
+    grid-template-columns: 4.75rem minmax(0, 1fr) !important;
+    grid-template-areas:
+      "num kicker"
+      "num label" !important;
+    column-gap: 12px !important;
+    row-gap: 2px !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(28, 42, 36, 0.1) !important;
+  }
+
+  #resultados .resultados-item:last-child {
+    border-bottom: 0 !important;
+  }
+
+  #resultados .resultados-kicker {
+    grid-area: kicker !important;
+    margin: 0 !important;
+  }
+
+  #resultados .resultados-num {
+    grid-area: num !important;
+  }
+
+  #resultados .resultados-label {
+    grid-area: label !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+}
+
+
+/* ============================================================
+   v149 — Resultados · foto = altura del copy + caption overlay
+   ============================================================ */
+
+#resultados .resultados-body {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.35fr) minmax(200px, 0.55fr) !important;
+  gap: clamp(24px, 3.5vw, 40px) !important;
+  align-items: stretch !important;
+}
+
+#resultados .resultados-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  min-width: 0 !important;
+  height: 100% !important;
+}
+
+#resultados .resultados-forbes {
+  position: relative !important;
+  display: block !important;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  justify-self: stretch !important;
+  overflow: hidden !important;
+  border-radius: 10px !important;
+  background: #1a2420 !important;
+}
+
+#resultados .resultados-forbes-img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  border-radius: 0 !important;
+}
+
+#resultados .resultados-forbes-cap {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  padding: 28px 16px 14px !important;
+  text-align: left !important;
+  font-family: var(--serif, Georgia, serif) !important;
+  font-size: clamp(15px, 1.6vw, 18px) !important;
+  font-style: italic !important;
+  line-height: 1.3 !important;
+  color: #f7f3ea !important;
+  background: linear-gradient(
+    to top,
+    rgba(10, 18, 16, 0.78) 0%,
+    rgba(10, 18, 16, 0.35) 55%,
+    rgba(10, 18, 16, 0) 100%
+  ) !important;
+}
+
+#resultados .resultados-forbes-cap strong {
+  font-style: normal !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  #resultados .resultados-body {
+    grid-template-columns: minmax(0, 1.25fr) minmax(160px, 0.5fr) !important;
+    align-items: stretch !important;
+  }
+
+  #resultados .resultados-forbes {
+    min-height: 0 !important;
+  }
+
+  #resultados .resultados-forbes-cap {
+    padding: 22px 12px 12px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  #resultados .resultados-body {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+
+  #resultados .resultados-forbes {
+    width: min(100%, 280px) !important;
+    height: auto !important;
+    min-height: 320px !important;
+    justify-self: start !important;
+  }
+
+  #resultados .resultados-forbes-img {
+    min-height: 320px !important;
+  }
+}
+
+
+/* ============================================================
+   v150 — Resultados · h2 a lo ancho del copy
+   ============================================================ */
+
+#resultados .resultados-head {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+#resultados .resultados-head h2 {
+  max-width: none !important;
+  width: 100% !important;
+  font-size: clamp(28px, 3.6vw, 42px) !important;
+  line-height: 1.12 !important;
+}
+
+
+/* ============================================================
+   v151 — Beneficios · head a lo ancho del value-inner
+   ============================================================ */
+
+#beneficios .value-head {
+  display: block !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+#beneficios .value-head h2 {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+#beneficios .value-head p {
+  max-width: none !important;
+  width: 100% !important;
+}

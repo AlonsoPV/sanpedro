@@ -161,12 +161,9 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     }
   });
 
-  function showGracias() {
-    const gracias = document.getElementById("gracias-card");
-    if (!gracias) return;
-    form.hidden = true;
-    gracias.hidden = false;
-    gracias.scrollIntoView({ behavior: "smooth", block: "center" });
+  function goToGracias() {
+    const next = form.dataset.thanks?.trim() || "./gracias.html";
+    window.location.assign(next);
   }
 
   form.addEventListener("submit", async (event) => {
@@ -200,7 +197,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         console.info("[reserva-form] Datos:", data);
       }
 
-      showGracias();
+      goToGracias();
     } catch (error) {
       console.error("[reserva-form] Error al enviar:", error);
       setStatus(

@@ -18478,3 +18478,489 @@ video {
   max-width: none !important;
   width: 100% !important;
 }
+
+
+/* ============================================================
+   v152 — Resultados · Forbes completa (sin crop)
+   ============================================================ */
+
+#resultados .resultados-forbes {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+#resultados .resultados-forbes-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+}
+
+#resultados .resultados-forbes-cap {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+
+/* ============================================================
+   v153 — Reserva · descripción bajo label WhatsApp
+   ============================================================ */
+
+#reserva .reserva-field-desc {
+  margin: -4px 0 8px;
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: #6a7a72;
+}
+
+
+/* ============================================================
+   v154 — Reserva · formulario mejor distribuido
+   ============================================================ */
+
+#reserva .reserva-shell {
+  gap: 20px !important;
+}
+
+#reserva .reserva-aside {
+  max-width: 520px !important;
+}
+
+#reserva .reserva-form.form-card {
+  padding: 28px 26px 24px !important;
+}
+
+#reserva .reserva-fields {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+  margin-bottom: 0 !important;
+  align-items: start !important;
+}
+
+#reserva .reserva-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  min-width: 0 !important;
+}
+
+#reserva .reserva-field label {
+  margin: 0 0 6px !important;
+  font-size: 12.5px !important;
+  font-weight: 550 !important;
+  line-height: 1.3 !important;
+  color: #2f3b36 !important;
+}
+
+#reserva .reserva-field-desc {
+  margin: 0 0 8px !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  color: #6f7f77 !important;
+}
+
+#reserva .reserva-field input,
+#reserva .reserva-field select {
+  min-height: 46px !important;
+  padding: 11px 14px !important;
+  border-radius: 10px !important;
+}
+
+#reserva .reserva-submit.form-submit {
+  margin-top: 20px !important;
+  min-height: 50px !important;
+}
+
+#reserva .reserva-form-foot {
+  margin-top: 12px !important;
+  text-align: center !important;
+}
+
+@media (min-width: 560px) {
+  #reserva .reserva-fields {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px 14px !important;
+  }
+
+  #reserva .reserva-field--full {
+    grid-column: 1 / -1 !important;
+  }
+
+  #reserva .reserva-form.form-card {
+    padding: 30px 28px 26px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #reserva .reserva-fields {
+    gap: 14px !important;
+  }
+
+  #reserva .reserva-form.form-card {
+    padding: 22px 18px 20px !important;
+  }
+}
+
+
+/* ============================================================
+   v155 — Reserva · info icon + tooltip WhatsApp
+   ============================================================ */
+
+#reserva .reserva-label-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+#reserva .reserva-label-row label {
+  margin: 0 !important;
+}
+
+#reserva .reserva-info {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #6f7f77;
+  cursor: help;
+  flex-shrink: 0;
+}
+
+#reserva .reserva-info:hover,
+#reserva .reserva-info:focus-visible {
+  color: #063f3a;
+  outline: none;
+}
+
+#reserva .reserva-info:focus-visible {
+  box-shadow: 0 0 0 3px rgba(46, 230, 168, 0.35);
+}
+
+#reserva .reserva-info::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  z-index: 5;
+  width: max-content;
+  max-width: 220px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #1f2a28;
+  color: #f7f3ea;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 8px 20px rgba(9, 28, 22, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+#reserva .reserva-info::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 2px);
+  z-index: 5;
+  border: 5px solid transparent;
+  border-top-color: #1f2a28;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+#reserva .reserva-info:hover::after,
+#reserva .reserva-info:hover::before,
+#reserva .reserva-info:focus-visible::after,
+#reserva .reserva-info:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+#reserva .reserva-info:hover::before,
+#reserva .reserva-info:focus-visible::before {
+  transform: translateX(-50%);
+}
+
+#reserva .reserva-field-desc {
+  display: none !important;
+}
+
+
+/* ============================================================
+   v156 — Reserva · ícono info minimalista
+   ============================================================ */
+
+#reserva .reserva-info {
+  width: 16px !important;
+  height: 16px !important;
+  color: #8a9690 !important;
+  opacity: 0.9;
+}
+
+#reserva .reserva-info-icon {
+  display: block;
+}
+
+#reserva .reserva-info:hover,
+#reserva .reserva-info:focus-visible {
+  color: #3d4a44 !important;
+  opacity: 1;
+  background: transparent !important;
+}
+
+#reserva .reserva-info:focus-visible {
+  box-shadow: 0 0 0 2px rgba(46, 230, 168, 0.28) !important;
+}
+
+
+/* ============================================================
+   v157 — Reserva · info icon (sin heredar CTA verde)
+   ============================================================ */
+
+#reserva .reserva-info,
+#reserva .form-card .reserva-info,
+#reserva form.form-card .reserva-info {
+  all: unset !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin-left: 2px !important;
+  color: #8a9690 !important;
+  cursor: help !important;
+  flex-shrink: 0 !important;
+  line-height: 0 !important;
+  vertical-align: middle !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+#reserva .reserva-info svg,
+#reserva .reserva-info-icon {
+  display: block !important;
+  width: 14px !important;
+  height: 14px !important;
+  pointer-events: none !important;
+}
+
+#reserva .reserva-info:hover,
+#reserva .reserva-info:focus-visible {
+  color: #3d4a44 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  outline: none !important;
+}
+
+#reserva .reserva-info:focus-visible {
+  border-radius: 999px !important;
+  box-shadow: 0 0 0 2px rgba(46, 230, 168, 0.3) !important;
+}
+
+#reserva .reserva-info::before,
+#reserva .reserva-info::after {
+  display: block !important;
+  background: none !important;
+  box-shadow: none !important;
+  content: none;
+}
+
+#reserva .reserva-info::after {
+  content: attr(data-tip) !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: calc(100% + 8px) !important;
+  z-index: 8 !important;
+  width: max-content !important;
+  max-width: 210px !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  background: #1f2a28 !important;
+  color: #f7f3ea !important;
+  font-family: Inter, system-ui, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 450 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+  white-space: normal !important;
+  box-shadow: 0 8px 20px rgba(9, 28, 22, 0.22) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(4px) !important;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease !important;
+}
+
+#reserva .reserva-info::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: calc(100% + 2px) !important;
+  z-index: 8 !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 5px solid transparent !important;
+  border-top-color: #1f2a28 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) !important;
+}
+
+#reserva .reserva-info:hover::after,
+#reserva .reserva-info:focus-visible::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+#reserva .reserva-info:hover::before,
+#reserva .reserva-info:focus-visible::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+/* ============================================================
+   v158 — Página de gracias
+   ============================================================ */
+
+body.gracias-page {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46, 230, 168, 0.12), transparent 55%),
+    linear-gradient(180deg, #0a1f1c 0%, #063f3a 45%, #0d2a26 100%);
+  color: #f4efe4;
+}
+
+body.gracias-page .topbar {
+  background: transparent;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.12);
+}
+
+body.gracias-page .topbar-cta {
+  background: #2ee6a8;
+  color: #052f2b;
+}
+
+.gracias-main {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 88px);
+  padding: clamp(32px, 6vw, 64px) var(--landing-gutter, clamp(20px, 5vw, 56px));
+}
+
+.gracias-panel {
+  width: min(100%, 560px);
+  text-align: center;
+  padding: clamp(28px, 5vw, 44px) clamp(22px, 4vw, 36px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1f2a28;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.gracias-panel .gracias-check {
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+}
+
+.gracias-kicker {
+  margin: 0 0 10px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c8a24a;
+}
+
+.gracias-panel h1 {
+  margin: 0;
+  font-family: var(--serif, "Libre Baskerville", Georgia, serif);
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #063f3a;
+}
+
+.gracias-lead {
+  margin: 16px auto 0;
+  max-width: 38ch;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #5b6b63;
+}
+
+.gracias-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: #6a7a72;
+}
+
+.gracias-meta .gracias-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ee6a8;
+  flex-shrink: 0;
+}
+
+.gracias-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #2ee6a8;
+  color: #052f2b;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(46, 230, 168, 0.32);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.gracias-home:hover {
+  background: #5ff0bd;
+  transform: translateY(-1px);
+}

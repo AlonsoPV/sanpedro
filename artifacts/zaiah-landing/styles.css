@@ -18964,3 +18964,320 @@ body.gracias-page .topbar-cta {
   background: #5ff0bd;
   transform: translateY(-1px);
 }
+
+
+/* ============================================================
+   v159 — Footer · redes sociales
+   ============================================================ */
+
+footer.site-footer .site-footer-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 14px !important;
+}
+
+footer.site-footer .site-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+footer.site-footer .site-footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 239, 228, 0.18);
+  color: #e8efe9;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+footer.site-footer .site-footer-social-link:hover,
+footer.site-footer .site-footer-social-link:focus-visible {
+  color: #2ee6a8;
+  border-color: rgba(46, 230, 168, 0.45);
+  background: rgba(46, 230, 168, 0.08);
+  outline: none;
+}
+
+
+/* ============================================================
+   v160 — CTA entre beneficios y perfil
+   ============================================================ */
+
+.mid-cta.scene {
+  padding: clamp(40px, 6vw, 72px) var(--landing-gutter, clamp(20px, 5vw, 56px));
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(46, 230, 168, 0.14), transparent 60%),
+    linear-gradient(180deg, #0a1f1c 0%, #063f3a 55%, #0a2420 100%);
+  border-top: 1px solid rgba(244, 239, 228, 0.08);
+  border-bottom: 1px solid rgba(244, 239, 228, 0.08);
+  text-align: center;
+  color: #f4efe4;
+}
+
+.mid-cta-inner {
+  width: min(100%, 640px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.mid-cta-eyebrow {
+  margin: 0 0 12px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c8a24a;
+}
+
+.mid-cta-title {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--serif, "Libre Baskerville", Georgia, serif);
+  font-size: clamp(26px, 3.8vw, 38px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #f7f3ea;
+}
+
+.mid-cta-copy {
+  margin: 14px 0 0;
+  max-width: 36ch;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: rgba(244, 239, 228, 0.78);
+}
+
+.mid-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  min-height: 50px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: #2ee6a8;
+  color: #052f2b;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(46, 230, 168, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mid-cta-btn:hover,
+.mid-cta-btn:focus-visible {
+  background: #5ff0bd;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(46, 230, 168, 0.38);
+  outline: none;
+}
+
+@media (max-width: 620px) {
+  .mid-cta.scene {
+    padding-block: 36px;
+  }
+
+  .mid-cta-title {
+    max-width: 16ch;
+  }
+
+  .mid-cta-btn {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+
+/* ============================================================
+   v161 — CTA retorno · distribución compacta y equilibrada
+   ============================================================ */
+
+.mid-cta.scene {
+  padding: clamp(28px, 4vw, 44px) var(--landing-gutter, clamp(20px, 5vw, 56px)) !important;
+}
+
+.mid-cta-inner {
+  width: min(100%, 980px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: clamp(20px, 3vw, 40px) !important;
+  text-align: left !important;
+}
+
+.mid-cta-eyebrow {
+  margin: 0 0 8px !important;
+  grid-column: 1;
+}
+
+.mid-cta-title {
+  margin: 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+  font-size: clamp(24px, 3.2vw, 34px) !important;
+  line-height: 1.12 !important;
+  grid-column: 1;
+}
+
+.mid-cta-copy {
+  margin: 10px 0 0 !important;
+  max-width: 42ch !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  grid-column: 1;
+}
+
+.mid-cta-btn {
+  margin-top: 0 !important;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 780px) {
+  .mid-cta-inner {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 0 !important;
+  }
+
+  .mid-cta-eyebrow,
+  .mid-cta-title,
+  .mid-cta-copy,
+  .mid-cta-btn {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .mid-cta-copy {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mid-cta-btn {
+    margin-top: 20px !important;
+    width: auto !important;
+    max-width: none !important;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 620px) {
+  .mid-cta.scene {
+    padding-block: 26px !important;
+  }
+
+  .mid-cta-btn {
+    width: 100% !important;
+  }
+}
+
+
+/* ============================================================
+   v162 — CTA retorno · fila completa (anula .scene 2-col)
+   ============================================================ */
+
+#cta-retorno.mid-cta.scene,
+.mid-cta.scene {
+  display: block !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+  align-items: stretch !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: clamp(28px, 4vw, 40px) var(--landing-gutter, clamp(20px, 5vw, 56px)) !important;
+}
+
+#cta-retorno .mid-cta-inner,
+.mid-cta .mid-cta-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: clamp(20px, 3vw, 40px) !important;
+  width: 100% !important;
+  max-width: var(--landing-width, 1120px) !important;
+  margin: 0 auto !important;
+  text-align: left !important;
+}
+
+#cta-retorno .mid-cta-copyblock,
+.mid-cta .mid-cta-copyblock {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#cta-retorno .mid-cta-eyebrow,
+.mid-cta .mid-cta-eyebrow {
+  margin: 0 0 8px !important;
+}
+
+#cta-retorno .mid-cta-title,
+.mid-cta .mid-cta-title {
+  margin: 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+  font-size: clamp(24px, 3vw, 34px) !important;
+  line-height: 1.12 !important;
+}
+
+#cta-retorno .mid-cta-copy,
+.mid-cta .mid-cta-copy {
+  margin: 10px 0 0 !important;
+  max-width: 48ch !important;
+}
+
+#cta-retorno .mid-cta-btn,
+.mid-cta .mid-cta-btn {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+@media (max-width: 780px) {
+  #cta-retorno .mid-cta-inner,
+  .mid-cta .mid-cta-inner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    text-align: left !important;
+  }
+
+  #cta-retorno .mid-cta-btn,
+  .mid-cta .mid-cta-btn {
+    width: 100% !important;
+    white-space: normal !important;
+    justify-content: center !important;
+  }
+}
+
+/* ============================================================
+   v163 — CTA retorno · énfasis del título
+   ============================================================ */
+
+#cta-retorno .mid-cta-title em,
+.mid-cta .mid-cta-title em {
+  font-style: italic;
+  color: var(--gold, #c8a24a);
+}
+
+#cta-retorno .mid-cta-copy,
+.mid-cta .mid-cta-copy {
+  max-width: 52ch !important;
+}

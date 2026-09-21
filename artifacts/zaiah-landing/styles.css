@@ -19281,3 +19281,536 @@ footer.site-footer .site-footer-social-link:focus-visible {
 .mid-cta .mid-cta-copy {
   max-width: 52ch !important;
 }
+
+/* ============================================================
+   v165 — CTA retorno · solo botón, centrado
+   ============================================================ */
+
+#cta-retorno.mid-cta.scene,
+.mid-cta.scene {
+  display: block !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: clamp(36px, 5vw, 56px) var(--landing-gutter, clamp(20px, 5vw, 56px)) !important;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(200, 162, 74, 0.18) 50%, transparent 100%) top / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent 0%, rgba(200, 162, 74, 0.18) 50%, transparent 100%) bottom / 100% 1px no-repeat,
+    radial-gradient(ellipse 55% 120% at 50% 50%, rgba(46, 230, 168, 0.1), transparent 70%),
+    linear-gradient(180deg, #0a1f1c 0%, #063f3a 55%, #0a2420 100%) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  text-align: center !important;
+}
+
+#cta-retorno .mid-cta-inner,
+.mid-cta .mid-cta-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  width: 100% !important;
+  max-width: var(--landing-width, 1120px) !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+#cta-retorno .mid-cta-copyblock,
+.mid-cta .mid-cta-copyblock {
+  display: none !important;
+}
+
+#cta-retorno .mid-cta-btn,
+.mid-cta .mid-cta-btn {
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  min-height: 54px !important;
+  padding: 14px 28px !important;
+  border-radius: 999px !important;
+  background: #2ee6a8 !important;
+  color: #052f2b !important;
+  font-family: Inter, system-ui, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 10px 28px rgba(46, 230, 168, 0.32) !important;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+#cta-retorno .mid-cta-btn:hover,
+#cta-retorno .mid-cta-btn:focus-visible,
+.mid-cta .mid-cta-btn:hover,
+.mid-cta .mid-cta-btn:focus-visible {
+  background: #5ff0bd !important;
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 14px 34px rgba(46, 230, 168, 0.4) !important;
+  outline: none !important;
+}
+
+@media (max-width: 620px) {
+  #cta-retorno.mid-cta.scene,
+  .mid-cta.scene {
+    padding-block: 32px !important;
+  }
+
+  #cta-retorno .mid-cta-btn,
+  .mid-cta .mid-cta-btn {
+    width: 100% !important;
+    max-width: 380px !important;
+    white-space: normal !important;
+    padding: 14px 20px !important;
+  }
+}
+
+
+
+/* ============================================================
+   v166 — Página de gracias · composición editorial
+   ============================================================ */
+
+body.gracias-page {
+  min-height: 100vh;
+  margin: 0;
+  color: #f4efe4;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% -8%, rgba(46, 230, 168, 0.16), transparent 58%),
+    radial-gradient(ellipse 40% 30% at 85% 80%, rgba(200, 162, 74, 0.1), transparent 55%),
+    linear-gradient(165deg, #071816 0%, #0a2a24 42%, #063f3a 72%, #0a1f1c 100%);
+  overflow-x: clip;
+}
+
+body.gracias-page .topbar {
+  position: relative;
+  z-index: 2;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.1) !important;
+  backdrop-filter: none !important;
+}
+
+body.gracias-page .topbar-cta {
+  background: #2ee6a8 !important;
+  color: #052f2b !important;
+  border: none !important;
+}
+
+body.gracias-page .topbar-cta:hover {
+  background: #5ff0bd !important;
+}
+
+.gracias-main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 88px);
+  padding: clamp(40px, 7vw, 80px) var(--landing-gutter, clamp(20px, 5vw, 56px));
+}
+
+.gracias-stage {
+  width: min(100%, 640px);
+  text-align: center;
+  animation: gracias-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.gracias-mark {
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+}
+
+.gracias-mark-svg {
+  display: block;
+  filter: drop-shadow(0 12px 28px rgba(46, 230, 168, 0.22));
+}
+
+.gracias-mark-ring {
+  transform-origin: 32px 32px;
+  animation: gracias-ring 0.9s ease-out 0.1s both;
+}
+
+.gracias-mark-core {
+  transform-origin: 32px 32px;
+  animation: gracias-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.gracias-mark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: gracias-draw 0.55s ease-out 0.45s forwards;
+}
+
+.gracias-kicker {
+  margin: 0 0 14px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c8a24a;
+}
+
+.gracias-title {
+  margin: 0;
+  font-family: var(--serif, "Libre Baskerville", Georgia, serif);
+  font-size: clamp(30px, 4.6vw, 44px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #f7f3ea;
+}
+
+.gracias-title em {
+  display: inline;
+  font-style: italic;
+  color: #c8a24a;
+}
+
+.gracias-lead {
+  margin: 18px auto 0;
+  max-width: 40ch;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(15px, 1.7vw, 17px);
+  line-height: 1.55;
+  color: rgba(244, 239, 228, 0.78);
+}
+
+.gracias-steps {
+  list-style: none;
+  margin: 28px auto 0;
+  padding: 0;
+  width: min(100%, 420px);
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(244, 239, 228, 0.14);
+  border-bottom: 1px solid rgba(244, 239, 228, 0.14);
+  text-align: left;
+}
+
+.gracias-steps li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.1);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.4;
+  color: rgba(244, 239, 228, 0.9);
+}
+
+.gracias-steps li:last-child {
+  border-bottom: 0;
+}
+
+.gracias-step-num {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #2ee6a8;
+}
+
+.gracias-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: rgba(244, 239, 228, 0.55);
+}
+
+.gracias-meta .gracias-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ee6a8;
+  box-shadow: 0 0 0 4px rgba(46, 230, 168, 0.15);
+  flex-shrink: 0;
+}
+
+.gracias-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  min-height: 52px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: #2ee6a8;
+  color: #052f2b;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 10px 28px rgba(46, 230, 168, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gracias-home:hover,
+.gracias-home:focus-visible {
+  background: #5ff0bd;
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 14px 34px rgba(46, 230, 168, 0.4);
+  outline: none;
+}
+
+/* Hide legacy white panel styles if present */
+.gracias-panel {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
+
+@keyframes gracias-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gracias-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gracias-ring {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gracias-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .gracias-main {
+    min-height: calc(100vh - 72px);
+    padding-block: 36px;
+  }
+
+  .gracias-title {
+    font-size: clamp(26px, 8vw, 34px);
+  }
+
+  .gracias-home {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gracias-stage,
+  .gracias-mark-ring,
+  .gracias-mark-core,
+  .gracias-mark-check {
+    animation: none !important;
+  }
+
+  .gracias-mark-check {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* ============================================================
+   v167 — Gracias · tipografía del título
+   ============================================================ */
+
+body.gracias-page .gracias-title,
+body.gracias-page h1.gracias-title,
+body.gracias-page .gracias-panel h1,
+body.gracias-page .gracias-stage h1 {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 auto !important;
+  max-width: 16ch !important;
+  font-family: "Libre Baskerville", Georgia, serif !important;
+  font-size: inherit !important;
+  font-weight: 400 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.03em !important;
+  color: #f7f3ea !important;
+  text-wrap: balance;
+}
+
+body.gracias-page .gracias-title-main {
+  display: block;
+  font-size: clamp(40px, 7vw, 64px) !important;
+  font-weight: 400 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.035em !important;
+  color: #f7f3ea !important;
+}
+
+body.gracias-page .gracias-title-sub {
+  display: block;
+  max-width: 14ch;
+  font-size: clamp(22px, 3.2vw, 30px) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.015em !important;
+  color: #c8a24a !important;
+}
+
+body.gracias-page .gracias-title em {
+  color: #c8a24a !important;
+  font-style: italic !important;
+}
+
+body.gracias-page .gracias-kicker {
+  margin-bottom: 18px !important;
+}
+
+body.gracias-page .gracias-lead {
+  margin-top: 22px !important;
+}
+
+
+/* ============================================================
+   v168 — Gracias · distribución del botón
+   ============================================================ */
+
+body.gracias-page .gracias-panel,
+body.gracias-page .gracias-stage {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color: inherit !important;
+  width: min(100%, 560px) !important;
+  margin-inline: auto !important;
+  padding: 0 !important;
+}
+
+body.gracias-page .gracias-actions {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-top: 32px !important;
+  padding-top: 28px !important;
+  border-top: 1px solid rgba(244, 239, 228, 0.14) !important;
+}
+
+body.gracias-page .gracias-home,
+body.gracias-page .gracias-actions .gracias-home {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 360px !important;
+  min-height: 54px !important;
+  margin: 0 !important;
+  padding: 14px 24px !important;
+  border-radius: 999px !important;
+  background: #2ee6a8 !important;
+  color: #052f2b !important;
+  font-family: Inter, system-ui, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 10px 28px rgba(46, 230, 168, 0.3) !important;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body.gracias-page .gracias-home:hover,
+body.gracias-page .gracias-home:focus-visible {
+  background: #5ff0bd !important;
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 14px 34px rgba(46, 230, 168, 0.4) !important;
+  outline: none !important;
+}
+
+body.gracias-page .gracias-meta {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 22px !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 620px) {
+  body.gracias-page .gracias-actions {
+    margin-top: 28px !important;
+    padding-top: 24px !important;
+  }
+
+  body.gracias-page .gracias-home,
+  body.gracias-page .gracias-actions .gracias-home {
+    max-width: none !important;
+  }
+}
+
+
+/* ============================================================
+   v169 — Footer · LinkedIn + Ubicación
+   ============================================================ */
+
+footer.site-footer .site-footer-social {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+footer.site-footer .site-footer-social-link--ubicacion {
+  width: auto !important;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px 0 10px;
+  gap: 7px;
+}
+
+footer.site-footer .site-footer-social-label {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: inherit;
+}

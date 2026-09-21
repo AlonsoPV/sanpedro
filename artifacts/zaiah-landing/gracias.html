@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=158" />
+    <link rel="stylesheet" href="./styles.css?v=168" />
   </head>
   <body class="gracias-page">
     <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1269568535332394&amp;ev=PageView&amp;noscript=1" /></noscript>
@@ -47,28 +47,52 @@
             decoding="async"
           />
         </a>
-        <a class="topbar-cta" href="./index.html#reserva">Volver al inicio</a>
+        <a class="topbar-cta" href="./index.html">Volver al inicio</a>
       </div>
     </header>
 
     <main class="gracias-main" aria-label="Confirmación de reserva">
-      <div class="gracias-panel">
-        <div class="gracias-check" aria-hidden="true">
-          <svg width="48" height="48" viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="20" fill="#063f3a"/>
-            <path d="M11 20.5l6.5 6.5L29 14" stroke="#d6b15a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <div class="gracias-stage gracias-panel">
+        <div class="gracias-mark" aria-hidden="true">
+          <svg class="gracias-mark-svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <circle class="gracias-mark-ring" cx="32" cy="32" r="30" stroke="rgba(46,230,168,0.35)" stroke-width="1.5"/>
+            <circle class="gracias-mark-core" cx="32" cy="32" r="24" fill="#063f3a"/>
+            <path class="gracias-mark-check" d="M20 33.2l8.2 8.2L44.8 24" stroke="#d6b15a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
+
         <p class="gracias-kicker">Solicitud recibida</p>
-        <h1>¡Gracias! Tu recorrido está en proceso</h1>
+        <h1 class="gracias-title">
+          <span class="gracias-title-main">¡Gracias!</span>
+          <span class="gracias-title-sub">Tu recorrido está en proceso</span>
+        </h1>
         <p class="gracias-lead">
           Revisamos tu perfil y te contactamos en menos de 24 horas por WhatsApp o correo para coordinar tu experiencia privada.
         </p>
-        <div class="gracias-meta">
+
+        <ul class="gracias-steps" aria-label="Qué sigue">
+          <li>
+            <span class="gracias-step-num">01</span>
+            <span>Confirmamos tu solicitud</span>
+          </li>
+          <li>
+            <span class="gracias-step-num">02</span>
+            <span>Te escribimos por WhatsApp o correo</span>
+          </li>
+          <li>
+            <span class="gracias-step-num">03</span>
+            <span>Agendamos tu experiencia privada</span>
+          </li>
+        </ul>
+
+        <p class="gracias-meta">
           <span class="gracias-dot" aria-hidden="true"></span>
-          <span>Av. Patriotismo 334, San Pedro de los Pinos, CDMX</span>
+          Av. Patriotismo 334, San Pedro de los Pinos, CDMX
+        </p>
+
+        <div class="gracias-actions">
+          <a class="gracias-home" href="./index.html">Regresar al sitio</a>
         </div>
-        <a class="gracias-home" href="./index.html">Regresar al sitio</a>
       </div>
     </main>
   </body>
